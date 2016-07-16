@@ -30,4 +30,4 @@ Run the app
 docker-compose up app
 ```
 
-Open the app in your browser http://localhost:3000.
+Open the app in your browser [localhost:3000](http://localhost:3000).
