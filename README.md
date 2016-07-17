@@ -17,7 +17,7 @@ cd kitahub
 Build your environment
 
 ``` shell
-docker-compose build
+docker-compose build --pull
 ```
 
 Run the database
