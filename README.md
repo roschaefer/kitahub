@@ -33,3 +33,16 @@ docker-compose up app
 ```
 
 Open the app in your browser [localhost:3000](http://localhost:3000).
+
+To use rails and rake commands initialize your environment
+
+``` shell
+source cli.sh
+```
+
+Then you can run rails and rake commands
+
+``` shell
+rails generate controller Welcome index
+rake db:migrate
+```
