@@ -1,4 +1,4 @@
-FROM ruby:2.3
+FROM ruby:2.3.1
 
 # Install requirements
 RUN apt-get update -qq && apt-get install -y libpq-dev nodejs
