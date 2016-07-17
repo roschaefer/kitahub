@@ -1,0 +1,73 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.logo-m {
+  width: 80%;
+  height: auto;
+}
+
+.main-graphic {
+  width: 80%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+@media screen and (max-width: 64em) {
+  .main-graphic {
+    width: 100%;
+    margin-top: 50px;
+  }
+}
+
+.img-area{
+  background-color: #fff;
+}
+
+.text-area {
+  padding-top: 30px;
+  padding-bottom: 80px;
+}
+
+.kitahub-profil {
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
+.hl {
+  color: #78CE48;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+
+.hl-contact {
+  color: #67B3DD;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.contact-link {
+  padding-top: 5px;
+  float: right !important;
+  margin-right: -15px;
+  margin-top: 3px;
+}
+
+#contact-link {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navbar-default .navbar-nav>li>a.btn-header {
+  @include button-variant(#fff, #78CE48, #78CE48);
+  margin-top: 10px;
+  margin-right: 30px;
+  padding: 10px 20px;
+  font-size: 1.1em;
+}

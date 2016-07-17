@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kitahub</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-default navbar-fixed-top header">
+      <div class="container">
+        <div class="navbar-header header-logo">
+          <a class="navbar-brand logo-position" href="/">
+            <%= image_tag("kitahub-logo.png", :alt => "Brand", :class => "logo") %>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="container content">
+      <%= yield %>
+    </div>
+    <footer>
+      <nav class="navbar navbar-default legal footer-bottom register-block center-block">
+        <ul class="nav navbar-nav">
+          <li class="terms">© 2016 kitahub</li>
+          <li><a class="terms" href="/privacy">Datenschutz</a></li>
+          <li><a class="terms" href="/imprint">Impressum</a></li>
+          <li><a class="terms" href="/terms">AGBs</a></li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>

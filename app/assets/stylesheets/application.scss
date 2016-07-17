@@ -1,0 +1,131 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "welcome";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: #555;
+  background-color: #fff;
+}
+
+body > .content {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.header {
+  background-color: #fff;
+  border: none;
+  padding-bottom: 20px;
+}
+
+.header-logo {
+  float: left !important;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.logo-position {
+  padding: 15px 10px 0 10px;
+  height: 50px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.footer-bottom {
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: #fff;
+}
+
+.legal {
+  padding: 0 20px;
+  opacity: 0.5;
+  font-size: 0.9em;
+}
+
+.terms {
+  padding: 15px 20px 15px 0;
+}
+
+h1, h2 {
+  font-weight: lighter;
+}
+
+
+@media (min-width: 600px) {
+  .register-block {
+    width: 450px;
+  }
+}
+
+.register-hd {
+  padding-bottom: 30px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.input-text {
+  font-size: 1em;
+  font-weight: normal;
+  color: #999;
+}
+
+.next-btn {
+  margin-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #78CE48;
+  color: #fff;
+  border: none;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    color: #fff;
+    background-color: #4BB530;
+  }
+}
+
+.nursery-item {
+  &:hover, &:focus,
+  &:active, &.open  {
+    background-color: #eee;
+    cursor: pointer;
+  }
+}
+
+.nursery-checkbox {
+  margin-right: 10px;
+  float: left;
+}
+
+.nursery-info {
+  font-weight: normal;
+  margin-left: 26px;
+}
+
+.nursery-hl {
+  color: #67B3DD;
+  margin-bottom: 3px;
+  margin-left: 26px;
+}
+
+.description {
+  color: #999;
+}
