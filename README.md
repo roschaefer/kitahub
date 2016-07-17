@@ -4,6 +4,8 @@ The kitahub app.
 # Prerequisites
 For local development Docker and and docker-compose are required. To install them on MacOS Docker for Mac is recommended. You can download it from here: https://docs.docker.com/docker-for-mac/
 
+It is recommended to use editorconfig support in your text editor. Plugins can be found here: http://editorconfig.org/#download
+
 # Usage
 Get the source code
 
