@@ -1,7 +1,7 @@
 version: '2'
 services:
   app:
-    build: .
+    image: kitahub/kitahub-dev
     command: bin/rails server -b '0.0.0.0'
     volumes:
       - .:/kitahub

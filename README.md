@@ -14,12 +14,6 @@ git clone https://github.com/jehrhardt/kitahub.git
 cd kitahub
 ```
 
-Build your environment
-
-``` shell
-docker-compose build --pull
-```
-
 Run the database
 
 ``` shell
