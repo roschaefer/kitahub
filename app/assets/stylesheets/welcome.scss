@@ -7,11 +7,13 @@
 }
 
 .main-graphic {
-  width: 80%;
+  width: 100%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   display: block;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media screen and (max-width: 64em) {
@@ -21,8 +23,9 @@
   }
 }
 
-.img-area{
+.container>.img-area,.jumbotron,{
   background-color: #fff;
+  padding: 0;
 }
 
 .text-area {
