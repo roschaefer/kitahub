@@ -2,7 +2,12 @@
 The kitahub app.
 
 # Prerequisites
-For local development Docker and and docker-compose are required. To install them on MacOS Docker for Mac is recommended. You can download it from here: https://docs.docker.com/docker-for-mac/
+On macOS use [Homebrew](http://brew.sh) to install the latest Ruby and PostgreSQL
+
+``` shell
+brew install ruby postgresql
+brew services start postgresql
+```
 
 It is recommended to use editorconfig support in your text editor. Plugins can be found here: http://editorconfig.org/#download
 
@@ -14,29 +19,23 @@ git clone https://github.com/jehrhardt/kitahub.git
 cd kitahub
 ```
 
-Run the database
+Install the dependencies
 
 ``` shell
-docker-compose up -d db
+bundle install
+```
+
+Create and migrate the database
+
+``` shell
+bin/rails db:setup
+bin/rails db:migrate
 ```
 
 Run the app
 
 ``` shell
-docker-compose up app
+bin/rails server
 ```
 
 Open the app in your browser [localhost:3000](http://localhost:3000).
-
-To use rails and rake commands initialize your environment
-
-``` shell
-source cli.sh
-```
-
-Then you can run rails and rake commands
-
-``` shell
-rails generate controller Welcome index
-rake db:migrate
-```
