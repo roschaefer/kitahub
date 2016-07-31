@@ -2,7 +2,7 @@
   <h1 class="register-hd">Anmelden</h1>
   <form>
     <div class="form-group">
-      <%= form_for(:session, url: login_path) do |f| %>
+      <%= form_for :session, :url => login_path do |f| %>
         <div class="form-group">
           <%= f.email_field :email, :placeholder => 'E-Mail', :class => 'form-control' %>
         </div>
