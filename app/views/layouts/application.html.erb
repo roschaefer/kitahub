@@ -13,8 +13,19 @@
       <div class="container">
         <div class="navbar-header header-logo">
           <a class="navbar-brand logo-position" href="/">
-            <%= image_tag("kitahub-logo.png", :alt => "Brand", :class => "logo") %>
+            <%= image_tag 'kitahub-logo.png', :alt => 'Brand', :class => 'logo' %>
           </a>
+        </div>
+        <div class="">
+          <% if current_user %>
+            <p class="navbar-text navbar-right">Nutzer: <%= current_user.email %></p>
+            <%= link_to 'Abmelden', logout_path, method: 'delete' %>
+            <% else %>
+              <ul>
+                <li><%= link_to 'Anmelden', 'login' %></a></li>
+                <li><%= link_to 'Registrieren', 'signup' %></a></li>
+              </ul>
+          <% end %>
         </div>
       </div>
     </nav>

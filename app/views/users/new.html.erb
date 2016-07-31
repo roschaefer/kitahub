@@ -1,0 +1,11 @@
+<div class="form">
+
+  <%= form_for(@user) do |f| %>
+    <%= f.text_field :first_name, :placeholder => "Vorname" %>
+    <%= f.text_field :last_name, :placeholder => "Nachname" %>
+    <%= f.email_field :email, :placeholder => "E-Mail" %>
+    <%= f.password_field :password, :placeholder => "Passwort" %>
+    <%= f.submit "Registrieren", class: "btn-submit" %>
+  <% end %>
+
+</div>
