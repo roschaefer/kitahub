@@ -23,11 +23,6 @@ body > .content {
 .header {
   background-color: #fff;
   border: none;
-  padding-bottom: 20px;
-}
-
-.header-logo {
-  float: left !important;
 }
 
 .logo {
@@ -36,7 +31,7 @@ body > .content {
 }
 
 .logo-position {
-  padding: 15px 10px 0 10px;
+  padding: 10px 10px 0 10px;
   height: 50px;
 }
 
@@ -44,6 +39,37 @@ body > .content {
   margin: 10px 40px;
   padding-right: 30px;
   padding-left: 30px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.menu-border {
+  @media (max-width: 768px) {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.start-btn {
+  padding: 10px 50px;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  background-color: #78CE48;
+  color: #fff;
+  border: none;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    color: #fff;
+    background-color: #4BB530;
+  }
+
+  @media (min-width: 769px) {
+    display: none;
+  }
 }
 
 .icon-margin {
