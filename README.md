@@ -5,6 +5,7 @@ The kitahub app.
 On macOS use [Homebrew](http://brew.sh) to install the latest Ruby and PostgreSQL
 
 ``` shell
+brew update
 brew install ruby postgresql
 brew services start postgresql
 ```
