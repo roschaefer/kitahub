@@ -52,11 +52,14 @@ body > .content {
 }
 
 .start-btn {
+  display: inline-block;
   padding: 10px 50px;
   font-size: 1.2em;
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
   background-color: #78CE48;
   color: #fff;
   border: none;

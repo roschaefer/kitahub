@@ -24,7 +24,7 @@
         </div>
         <div class="collapse navbar-collapse menu-border" id="bs-example-navbar-collapse-1">
           <ul class="navbar-right">
-            <button class="btn btn-default header-btn">Kita finden</button>
+            <%= link_to 'Kita finden', nurseries_path, :class => 'btn btn-default header-btn' %>
             <% if current_user %>
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
