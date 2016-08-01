@@ -16,7 +16,7 @@ html, body {
 }
 
 body > .content {
-  margin-top: 100px;
+  margin-top: 60px;
   margin-bottom: 100px;
 }
 
@@ -45,33 +45,15 @@ body > .content {
 }
 
 .menu-border {
-  @media (max-width: 768px) {
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #eee;
-  }
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  height: 60px;
 }
 
-.start-btn {
-  display: inline-block;
-  padding: 10px 50px;
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 50px;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: #78CE48;
-  color: #fff;
-  border: none;
-
-  &:hover, &:focus,
-  &:active, &.open  {
-    color: #fff;
-    background-color: #4BB530;
-  }
-
-  @media (min-width: 769px) {
-    display: none;
+@media (max-width: 767px) {
+  .response-menu {
+    margin-top: 9px;
+    background-color: #fff;
   }
 }
 
@@ -168,4 +150,16 @@ h1, h2 {
 
 .description {
   color: #999;
+}
+
+.margin-top-l {
+  margin-top: 60px;
+}
+
+.margin-top-m {
+  margin-top: 30px;
+}
+
+.margin-top-s {
+  margin-top: 10px;
 }

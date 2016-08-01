@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top header">
+    <nav class="navbar navbar-default navbar-fixed-top header menu-border">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand logo-position" href="/">
@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        <div class="collapse navbar-collapse menu-border" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse response-menu" id="bs-example-navbar-collapse-1">
           <ul class="navbar-right">
             <%= link_to 'Kita finden', nurseries_path, :class => 'btn btn-default header-btn' %>
             <% if current_user %>
@@ -44,7 +44,7 @@
         </div>
       </div>
     </nav>
-    <div class="container content">
+    <div class="container-fluid content">
       <%= yield %>
     </div>
     <footer>
