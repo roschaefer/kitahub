@@ -116,6 +116,11 @@ p {
   padding-bottom: 30px;
   letter-spacing: 2px;
   text-align: center;
+
+  @media (max-width: 645px) {
+    letter-spacing: 0;
+    font-size: 2em;
+  }
 }
 
 .input-text {
