@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :redirect_subdomain
 
   def not_live?
-    @not_live ||= ENV['STAGING']
+    @not_live ||= !Rails.env.production? || ENV['STAGING']
   end
 
   def current_user
