@@ -10,7 +10,12 @@
 </div>
 <h1 class="register-hd margin-top-xl">Mit Kitahub von der ersten Anfrage bis zum Vertragsabschluß</h1>
 <div class="jumbotron img-area">
-  <%= image_tag("kitaanmeldung_quer.svg", :alt => "Kitaplatz-Vergabeprozess", :class => "main-graphic") %>
+  <picture>
+  <source
+    media="(max-width: 678px)"
+    srcset="<%= image_path('kitaanmeldung_hoch.svg') %>">
+  <%= image_tag('kitaanmeldung_quer.svg', :alt => 'Kitaplatz-Vergabeprozess', :class => 'main-graphic') %>
+</picture>
 </div>
 <div class="carousel-bg">
   <div id="carousel-example-generic" class="carousel slide container" data-ride="carousel">
@@ -59,7 +64,7 @@
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-4 kitahub-profil">
-        <%= image_tag("kitahub-grey.png", :alt => "Brand", :class => "kitahub-logo center-block") %>
+        <%= image_tag('kitahub-grey.png', :alt => 'Kitahub Logo', :class => 'kitahub-logo center-block') %>
         <p class="text-center">Kitahub ist eine soziale Initiative aus Eltern mit dem Ziel gemeinsam mit Kitas einen Online-Dienst für die Vergabe von Betreuungsplätzen zu entwickeln.</p>
       </div>
     </div>
