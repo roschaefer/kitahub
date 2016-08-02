@@ -9,12 +9,11 @@
   display: block;
   padding-left: 0;
   padding-right: 0;
-}
 
-@media screen and (max-width: 64em) {
-  .main-graphic {
+  @media screen and (max-width: 678px) {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 5px;
+    margin-bottom: 80px;
   }
 }
 
@@ -116,13 +115,13 @@
 .slide-content {
   width: 60%;
   display: block;
-  margin: 90px auto 50px auto;
+  margin: 100px auto 50px auto;
   background-color: #f3f7fd;
-  height: 230px;
+  height: 240px;
   padding-left: 20px;
   padding-right: 20px;
 
-  @media (min-width: 500px) and (max-width: 991px) {
+  @media (min-width: 400px) and (max-width: 991px) {
     width: 80%;
     display: block;
     margin-bottom: 100px;
@@ -130,10 +129,27 @@
   }
 
   @media (max-width: 500px) {
-    width: 80%;
+    width: 85%;
     display: block;
+    margin-top: 80px;
     margin-bottom: 100px;
-    height: 280px;
+    height: 270px;
+  }
+
+  @media (max-width: 400px) {
+    width: 90%;
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    height: 270px;
+  }
+
+  @media (max-width: 350px) {
+    width: 90%;
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    height: 320px;
   }
 }
 
