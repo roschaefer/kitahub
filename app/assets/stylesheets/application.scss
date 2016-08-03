@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 @import "welcome";
+@import "nurseries";
 
 html {
   position: relative;
@@ -18,21 +18,26 @@ html, body {
 body > .content {
   margin-top: 60px;
   margin-bottom: 100px;
+  margin-left: 30px;
+  margin-right: 30px;
+  @media (max-width: 768px) {
+    margin-left: inherit;
+    margin-right: inherit;
+  }
 }
 
 .header {
-  background-color: #fff;
-  border: none;
+  margin-left: 30px;
+  margin-right: 30px;
+  @media (max-width: 768px) {
+    margin-left: inherit;
+    margin-right: inherit;
+  }
 }
 
 .logo {
   width: 120px;
   height: auto;
-}
-
-.logo-position {
-  padding: 10px 10px 0 10px;
-  height: 50px;
 }
 
 .header-btn {
@@ -88,6 +93,7 @@ footer {
 
 h1, h2 {
   font-weight: lighter;
+  letter-spacing: 2px;
 }
 
 p {
@@ -105,10 +111,12 @@ p {
 @media (max-width: 600px) {
   h1 {
     font-size: 2em;
+    letter-spacing: 0px;
   }
 
   h2 {
     font-size: 1.8em;
+    letter-spacing: 0px;
   }
 }
 
@@ -181,6 +189,14 @@ p {
   font-size: 1.1em;
 }
 
+.margin-top-s {
+  margin-top: 10px;
+}
+
+.margin-top-m {
+  margin-top: 30px;
+}
+
 .margin-top-l {
   margin-top: 60px;
 }
@@ -189,10 +205,18 @@ p {
   margin-top: 80px;
 }
 
-.margin-top-m {
-  margin-top: 30px;
+.margin-bottom-s {
+  margin-bottom: 10px;
 }
 
-.margin-top-s {
-  margin-top: 10px;
+.margin-bottom-m {
+  margin-bottom: 30px;
+}
+
+.margin-bottom-l {
+  margin-bottom: 60px;
+}
+
+.margin-bottom-xl {
+  margin-bottom: 80px;
 }
