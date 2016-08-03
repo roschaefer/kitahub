@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#   address = Address.new('Musterstr. 7', 12345, 'Musterstadt')
+#   nurseries = Nursery.create([{ name: 'Test-Kita', address: address, phone: '123456', mail: 'email@web.de'}])
+
+require 'csv'
+
+CSV.foreach('kitas_potsdam.csv', :headers => true) do |row|
+  nurseries = Nursery.create(row.to_hash)
+end
