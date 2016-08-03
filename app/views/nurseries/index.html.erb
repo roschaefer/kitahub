@@ -1,1 +1,10 @@
-<h1>List of nurseries</h1>
+<h1>Kindergärten und Kitas in Potsdam</h1>
+
+<% @nurseries.each do |nursery| %>
+  <tr>
+    <td><%= nursery.name %></td>
+    <td><%= nursery.address.full %></td>
+    <td><%= nursery.phone %></td>
+    <td><%= nursery.mail %></td>
+  </tr>
+<% end %>

@@ -3,4 +3,7 @@ class Address
   def initialize(street, zip, city)
     @street, @zip, @city = street, zip, city
   end
+  def full
+    "#{street} #{zip} #{city}"
+  end
 end
