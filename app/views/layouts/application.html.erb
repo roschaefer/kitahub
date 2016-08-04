@@ -53,9 +53,9 @@
       <nav class="navbar navbar-default legal footer-bottom register-block center-block">
         <ul class="nav navbar-nav">
           <li class="terms">© 2016 kitahub</li>
-          <li><a class="terms" href="/privacy">Datenschutz</a></li>
-          <li><a class="terms" href="/imprint">Impressum</a></li>
-          <li><a class="terms" href="/terms">AGBs</a></li>
+          <li><%= link_to 'Datenschutz', privacy_path, :class => 'terms' %></li>
+          <li><%= link_to 'Impressum', imprint_path, :class => 'terms' %></li>
+          <li><%= link_to 'AGBs', terms_path, :class => 'terms' %></li>
         </ul>
       </nav>
     </footer>
