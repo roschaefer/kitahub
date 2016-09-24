@@ -3,7 +3,7 @@
     <h1 class="margin-top-l margin-bottom-m">Wo in Potsdam suchen Sie eine Kita?</h1>
   </div>
 </div>
-<form>
+<form class="nursery-filter" action="/nurseries/results">
   <% @districts.each do |district| %>
     <div class="checkbox">
       <label>
@@ -11,6 +11,7 @@
       </label>
     </div>
   <% end %>
-  <button type="submit" class="btn btn-default">Reload</button>
 </form>
-<%= render 'results' %>
+<div class="results">
+  <%= render 'results' %>
+</div>
