@@ -1,8 +1,18 @@
 <div class="row hl-margin">
   <div class="col-md-12">
-    <h1 class="margin-top-l margin-bottom-m">Kindergärten und Kitas in Potsdam</h1>
+    <h1 class="margin-top-l margin-bottom-m">Wo in Potsdam suchen Sie eine Kita?</h1>
   </div>
 </div>
+<form>
+  <% @districts.each do |district| %>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="district[]" value="<%= district %>"><%= district %></input>
+      </label>
+    </div>
+  <% end %>
+  <button type="submit" class="btn btn-default">Reload</button>
+</form>
 <% @nurseries.each do |nursery| %>
   <div class="row nursery-list">
     <div class="col-md-3"><strong><%= nursery.name %></strong></div>
