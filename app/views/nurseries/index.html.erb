@@ -3,15 +3,24 @@
     <h1 class="margin-top-l margin-bottom-m">Wo in Potsdam suchen Sie eine Kita?</h1>
   </div>
 </div>
-<form class="nursery-filter" action="/nurseries/results">
-  <% @districts.each do |district| %>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" name="district[]" value="<%= district %>"><%= district %></input>
-      </label>
-    </div>
-  <% end %>
-</form>
+<div class="row district-list">
+  <div class="col-md-12">
+    <form class="nursery-filter" action="/nurseries/results">
+      <% @districts.each do |district| %>
+        <div class="checkbox district-filter">
+          <label>
+            <input type="checkbox" name="district[]" value="<%= district %>"><%= district %></input>
+          </label>
+        </div>
+      <% end %>
+      <div class="checkbox district-filter">
+        <label>
+          <input type="checkbox" name="all">Alle</input>
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
 <div class="results">
   <%= render 'results' %>
 </div>
