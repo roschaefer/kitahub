@@ -4,6 +4,6 @@ class Address
     @street, @zip, @city = street, zip, city
   end
   def full
-    "#{street} #{zip} #{city}"
+    "#{street}, #{zip} #{city}"
   end
 end
