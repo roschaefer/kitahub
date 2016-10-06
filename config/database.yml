@@ -1,5 +1,6 @@
 default: &default
   adapter: postgresql
+  username: kitahub
   encoding: unicode
   pool: 5
   timeout: 5000
@@ -7,6 +8,7 @@ default: &default
 development:
   <<: *default
   database: kitahub_dev
+  url: <%= ENV['DATABASE_URL'] || 'postgres://localhost' %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -14,9 +16,9 @@ development:
 test:
   <<: *default
   database: kitahub_test
+  url: <%= ENV['DATABASE_URL'] || 'postgres://localhost' %>
 
 production:
   <<: *default
   database: kitahub
-  username: kitahub
   password: <%= ENV['KITAHUB_DATABASE_PASSWORD'] %>

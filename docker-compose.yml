@@ -9,5 +9,11 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      - DATABASE_URL=postgresql://db
   db:
     image: postgres:9.5.2
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=kitahub
