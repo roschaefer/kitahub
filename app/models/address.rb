@@ -4,7 +4,10 @@ class Address
 
   attr_reader :street, :zip, :city
 
+  def validation_context=(value); end
+
   def initialize(street, zip, city)
+    errors
     @street = street
     @zip = zip
     @city = city
