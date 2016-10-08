@@ -1,6 +1,8 @@
 # kitahub
 The kitahub app.
 
+[![Build Status](https://travis-ci.org/kitahub/kitahub.svg?branch=master)](https://travis-ci.org/kitahub/kitahub)
+
 # Prerequisites
 On macOS use [Homebrew](http://brew.sh) to install the latest Ruby and PostgreSQL
 
