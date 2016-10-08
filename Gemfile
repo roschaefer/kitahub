@@ -35,6 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Use rspec for testing
   gem 'rspec-rails', '~> 3.5'
+  # Use continuous testing
+  gem 'guard-rspec', '~> 4.7', require: false
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   # console
@@ -50,6 +52,7 @@ group :development do
   # background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.4'
 
   # Ruby style checking
   gem 'rubocop', require: false

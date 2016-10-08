@@ -52,9 +52,22 @@ rails server
 Open the app in your browser [localhost:3000](http://localhost:3000).
 
 # Development
+During development you should use the scripts in the `bin` directory.
+
+To run the app during development
+
+``` shell
+bin/rails server
+```
+
 Run the tests
 
 ``` shell
-rake db:test:prepare
-rails spec
+bin/rails spec
+```
+
+Run the tests continuously via Guard
+
+``` shell
+guard --no-bundler-warning
 ```
