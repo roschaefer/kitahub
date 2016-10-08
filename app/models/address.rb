@@ -1,6 +1,9 @@
 # A value object, that represents the postal address of someone.
 class Address
+  include ActiveModel::Validations
+
   attr_reader :street, :zip, :city
+
   def initialize(street, zip, city)
     @street = street
     @zip = zip
@@ -10,4 +13,10 @@ class Address
   def full
     "#{street} #{zip} #{city}"
   end
+
+  validates :street, presence: true, allow_blank: false
+  validates :zip,
+            presence: true,
+            length: { is: 5 },
+            numericality: { only_integer: true }
 end
