@@ -8,4 +8,4 @@ before_install:
   - docker-compose up -d db
 script:
   - bundle exec rake db:test:prepare
-  - bundle exec rake spec
+  - bundle exec rails spec
