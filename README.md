@@ -48,3 +48,11 @@ rails server
 ```
 
 Open the app in your browser [localhost:3000](http://localhost:3000).
+
+# Development
+Run the tests
+
+``` shell
+rake db:test:prepare
+rails spec
+```
