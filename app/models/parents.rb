@@ -1,3 +1,8 @@
 # An entity representing the parents in the registration process.
 class Parents < ApplicationRecord
+  has_many :registrations
+
+  def select_nursery(nursery)
+    Registration.create(parents: self, nursery: nursery)
+  end
 end
