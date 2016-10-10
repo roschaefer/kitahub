@@ -30,10 +30,10 @@ Install the dependencies
 bundle install
 ```
 
-Launch the database in the background
+Launch the databases in the background
 
 ``` shell
-docker-compose up -d db
+docker-compose up -d
 ```
 
 Create and migrate the database
