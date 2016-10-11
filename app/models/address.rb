@@ -14,7 +14,7 @@ class Address
   end
 
   def full
-    "#{street} #{zip} #{city}"
+    "#{street}, #{zip} #{city}"
   end
 
   validates :street, presence: true, allow_blank: false

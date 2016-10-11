@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   get 'nurseries' => 'nurseries#index'
+  get 'nurseries/results' => 'nurseries#results'
 end
