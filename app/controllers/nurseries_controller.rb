@@ -7,6 +7,6 @@ class NurseriesController < ApplicationController
 
   def results
     @nurseries = Nursery.where(district: params[:district])
-    render :partial => "results"
+    render partial: 'results'
   end
 end
