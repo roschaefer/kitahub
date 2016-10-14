@@ -1,5 +1,5 @@
 # Root class of all mailers in the application.
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'info@kitahub.de'
   layout 'mailer'
 end
