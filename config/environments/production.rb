@@ -89,11 +89,6 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  # On staging ensure mails are not sent to the recipient.
-  if ENV['STAGING']
-    ActionMailer::Base.register_interceptor(StagingEmailInterceptor)
-  end
-
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
