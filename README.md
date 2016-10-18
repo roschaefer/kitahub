@@ -36,17 +36,16 @@ Launch the databases in the background
 docker-compose up -d
 ```
 
-Create and migrate the database
+Create the database and load the seed data
 
 ``` shell
-rake db:setup
-rake db:migrate
+bin/rails db:setup
 ```
 
 Run the app
 
 ``` shell
-rails server
+bin/rails server
 ```
 
 Open the app in your browser [localhost:3000](http://localhost:3000).
