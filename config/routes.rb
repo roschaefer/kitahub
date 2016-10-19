@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   get 'nurseries' => 'nurseries#index'
   get 'nurseries/results' => 'nurseries#results'
 
-  get 'registration' => 'registration#index'
+  get 'registration/:id' => 'registration#index'
 end

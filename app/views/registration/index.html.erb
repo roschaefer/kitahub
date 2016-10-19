@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-7">
-    <h2 class="margin-top-l margin-bottom-l">Erste Anfrage in der Kita “Butzemannhaus e.V. (Elterninitiativkita)”</h2>
+    <h2 class="margin-top-l margin-bottom-l">Ihre Anfrage in der Kita “<%= @nursery.name %>”</h2>
     <h3 class="margin-bottom-m">Betreff: Besichtigungstermin</h3>
-    <p class="margin-bottom-s">Sehr geehrte/r #{:nurseries.management},</p>
+    <p class="margin-bottom-s">Sehr geehrte/r <%= @nursery.management %>,</p>
     <p class="inline-order">wir sind auf der Suche nach einem Kitaplatz zum </p>
     <div class="form-group inline-order">
       <input type="date" class="form-control input-sm" placeholder="tt.mm.jjjj">
     </div>
     <div>
-      <p class="inline-order">für unsere(n)</p>
+      <p class="inline-order">für unsere/n</p>
       <div class="checkbox inline-order">
           <label><input type="checkbox"> Tochter</label>
       </div>
