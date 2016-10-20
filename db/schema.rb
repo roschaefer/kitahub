@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019180744) do
+ActiveRecord::Schema.define(version: 20161019184807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20161019180744) do
     t.string   "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "parents_id"
+    t.index ["parents_id"], name: "index_children_on_parents_id", using: :btree
   end
 
   create_table "nurseries", force: :cascade do |t|
@@ -47,10 +49,12 @@ ActiveRecord::Schema.define(version: 20161019180744) do
   end
 
   create_table "registrations", force: :cascade do |t|
-    t.integer  "parents_id", null: false
-    t.integer  "nursery_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "parents_id",  null: false
+    t.integer  "nursery_id",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "children_id"
+    t.index ["children_id"], name: "index_registrations_on_children_id", using: :btree
     t.index ["nursery_id"], name: "index_registrations_on_nursery_id", using: :btree
     t.index ["parents_id"], name: "index_registrations_on_parents_id", using: :btree
   end
@@ -64,4 +68,6 @@ ActiveRecord::Schema.define(version: 20161019180744) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "children", "parents", column: "parents_id"
+  add_foreign_key "registrations", "children", column: "children_id"
 end

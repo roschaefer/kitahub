@@ -1,3 +1,3 @@
 class Child < ApplicationRecord
-  has_many :children
+  belongs_to :parents
 end
