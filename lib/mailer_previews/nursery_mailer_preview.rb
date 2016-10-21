@@ -8,6 +8,8 @@ class NurseryMailerPreview < ActionMailer::Preview
       address: Address.new('Hebbelstr.', '12345', 'Berlin')
     )
     parents = Parents.create
-    NurseryMailer.nursery_selected(nursery, parents)
+    child = Child.create(parents: parents)
+    registration = parents.select_nursery(child, nursery)
+    NurseryMailer.nursery_selected(registration)
   end
 end
