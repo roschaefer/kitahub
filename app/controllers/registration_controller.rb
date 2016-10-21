@@ -1,5 +1,5 @@
+# Actions to save a child data for the first request in a nursery.
 class RegistrationController < ApplicationController
-
   def index
     @nursery = Nursery.find(params[:id])
   end
@@ -12,6 +12,16 @@ class RegistrationController < ApplicationController
       gender: params[:child_gender],
       parents: current_parents
     )
+    save_child
+  end
+
+  def confirmation
+    @nursery = Nursery.find(params[:id])
+  end
+
+  private
+
+  def save_child
     if @child.save
       session[:child_id] = @child.id
       nursery_id = params[:nursery_id]
@@ -20,9 +30,5 @@ class RegistrationController < ApplicationController
       @nursery = Nursery.find(params[:nursery_id])
       render 'index'
     end
-  end
-
-  def confirmation
-    @nursery = Nursery.find(params[:id])
   end
 end
