@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20161021085209) do
     t.string   "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "parents_id"
+    t.index ["parents_id"], name: "index_children_on_parents_id", using: :btree
   end
 
   create_table "nurseries", force: :cascade do |t|
@@ -42,11 +44,9 @@ ActiveRecord::Schema.define(version: 20161021085209) do
   end
 
   create_table "parents", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.integer  "children_id"
-    t.index ["children_id"], name: "index_parents_on_children_id", using: :btree
     t.index ["user_id"], name: "index_parents_on_user_id", using: :btree
   end
 
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20161021085209) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "parents", "children", column: "children_id"
+  add_foreign_key "children", "parents", column: "parents_id"
   add_foreign_key "parents", "users"
   add_foreign_key "registrations", "children"
 end
