@@ -7,7 +7,7 @@
     <%= form_tag do %>
       <div class="form-inline form-group">
           <p class="inline-order">wir sind auf der Suche nach einem Kitaplatz zum </p>
-        <%= date_field :child, :due_date, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
+        <%= date_field_tag :child_due_date, nil, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
       </div>
       <p class="inline-order">für unsere/n</p>
       <div class="checkbox inline-order">
@@ -18,20 +18,18 @@
       </div>
       <div class="plus-element inline-order">mehr Kinder</div>
       <div class="form-inline form-group">
-        <%= text_field_tag :first_name, nil, placeholder: 'Vorname', class: 'form-control' %>
-        <%= text_field_tag :last_name, nil, placeholder: 'Nachname', class: 'form-control' %>
+        <%= text_field_tag :child_first_name, nil, placeholder: 'Vorname', class: 'form-control' %>
+        <%= text_field_tag :child_last_name, nil, placeholder: 'Nachname', class: 'form-control' %>
       </div>
       <div class="form-inline form-group">
         <p class="inline-order">geboren am </p>
-        <%= date_field :child, :birth_date, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
+        <%= date_field_tag :child_birth_date, nil, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
       </div>
       <p>Wir möchten gerne Sie und Ihre Kita kennenlernen.</br>
       Über einen Terminvorschlag würden wir uns freuen. </p>
       <p class="margin-top-m">Mit freundlichen Grüßen</p>
       <p class="inline-order">Familie</p>
-      <div class="inline-order">
-        <%= text_field :last_name, nil, placeholder: 'Nachname', class: 'form-control' %>
-      </div>
+      <p class="inline-order"><%= current_parents.email %></p>
   </div>
   <div class="col-md-3 margin-top-l sidebar-column">
     <h3 class="sidebar-hl margin-top-m">Warum finden Sie diese Kita besonders interessant?</h3>
