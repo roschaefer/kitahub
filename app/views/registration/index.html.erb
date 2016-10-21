@@ -18,7 +18,18 @@
       </div>
       <div class="plus-element inline-order">mehr Kinder</div>
       <div class="form-inline form-group">
-        <%= text_field_tag :child_first_name, nil, placeholder: 'Vorname', class: 'form-control' %>
+        <% if @child && @child.errors[:first_name].any? %>
+          <div class="form-group has-error">
+            <label class="control-label">
+              <%= @child.errors[:first_name].join(", ") %>
+            </label>
+            <%= text_field_tag :child_first_name, nil, placeholder: 'Vorname', class: 'form-control' %>
+          </div>
+        <% else %>
+          <div class="form-group">
+            <%= text_field_tag :child_first_name, nil, placeholder: 'Vorname', class: 'form-control' %>
+          </div>
+        <% end %>
         <%= text_field_tag :child_last_name, nil, placeholder: 'Nachname', class: 'form-control' %>
       </div>
       <div class="form-inline form-group">
