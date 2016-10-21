@@ -7,4 +7,6 @@ class Parents < ApplicationRecord
     Registration.create(parents: self, nursery: nursery)
     NurseryMailer.nursery_selected(nursery, self).deliver_later
   end
+
+  validates :user, uniqueness: true
 end
