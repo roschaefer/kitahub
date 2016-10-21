@@ -8,9 +8,7 @@ class Parents < ApplicationRecord
     NurseryMailer.nursery_selected(nursery, self).deliver_later
   end
 
-  def email
-    user.email
-  end
+  delegate :email, to: :user
 
   validates :user, uniqueness: true
 end
