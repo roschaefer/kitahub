@@ -9,6 +9,7 @@ class RegistrationController < ApplicationController
       first_name: params[:child_first_name],
       last_name: params[:child_last_name],
       birth_date: params[:birth_date],
+      gender: params[:child_gender],
       parents: current_parents
     )
     if @child.save

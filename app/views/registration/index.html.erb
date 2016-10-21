@@ -11,10 +11,10 @@
       </div>
       <p class="inline-order">für unsere/n</p>
       <div class="checkbox inline-order">
-          <label><input type="checkbox"> Tochter</label>
+          <label><%= radio_button_tag :child_gender, 'Tochter', type: 'checkbox', value: 'f' %> Tochter</label>
       </div>
       <div class="checkbox inline-order margin-right-m">
-          <label><input type="checkbox"> Sohn</label>
+          <label><%= radio_button_tag :child_gender, 'Sohn', type: 'checkbox', value: 'm' %> Sohn</label>
       </div>
       <div class="plus-element inline-order">mehr Kinder</div>
       <div class="form-inline form-group">
