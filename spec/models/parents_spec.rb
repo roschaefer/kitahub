@@ -9,7 +9,8 @@ RSpec.describe Parents, type: :model do
       phone: '875958',
       mail: 'foo@bar.org'
     )
-    parents = Parents.create
+    user = User.create(email: 'foo@bar.com', password: 'secretfoo')
+    parents = Parents.create(user: user)
     parents.select_nursery(nursery)
     expect(parents.registrations.count).to eq 1
   end
