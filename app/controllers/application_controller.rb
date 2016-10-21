@@ -2,7 +2,7 @@
 # Adds session handling and www.kitahub.de support. It also takes care of non
 # live features.
 class ApplicationController < ActionController::Base
-  helper_method :current_user
+  helper_method :current_parents
   helper_method :not_live?
   protect_from_forgery with: :exception
   before_action :redirect_subdomain
@@ -11,12 +11,9 @@ class ApplicationController < ActionController::Base
     @not_live ||= !Rails.env.production? || ENV['STAGING']
   end
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def require_user
-    redirect_to '/login' unless current_user
+  def current_parents
+    user = current_user
+    @current_parents ||= Parents.where(user: user).first if user
   end
 
   def redirect_subdomain
@@ -25,6 +22,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def current_user
+    User.find(session[:user_id]) if session[:user_id]
+  end
 
   def disabled?(host)
     host == 'www.kitahub.de'
