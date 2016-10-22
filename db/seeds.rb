@@ -10,3 +10,6 @@ end
 
 user = User.create(email: 'info@kitahub.de', password: 'secretfoo')
 Parents.create(user: user)
+
+admin = User.create(email: 'admin@kitahub.de', password: 'secretfoo')
+Admin.create(first_name: 'Foo', last_name: 'Bar', user: admin)
