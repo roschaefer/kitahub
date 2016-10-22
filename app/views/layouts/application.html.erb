@@ -8,7 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top menu-border">
+    <% if admin? %>
+      <nav class="navbar navbar-default navbar-fixed-top menu-border admin">
+    <% else %>
+      <nav class="navbar navbar-default navbar-fixed-top menu-border">
+    <% end %>
       <div class="container-fluid header">
         <div class="navbar-header">
           <%= link_to image_tag('kitahub-logo.png', :alt => 'Brand', :class => 'logo'), root_path, class: 'navbar-brand' %>
