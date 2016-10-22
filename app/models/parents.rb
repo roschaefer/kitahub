@@ -15,5 +15,9 @@ class Parents < ApplicationRecord
 
   delegate :email, to: :user
 
+  def display_name
+    email
+  end
+
   validates :user, uniqueness: true
 end
