@@ -11,7 +11,7 @@ class NurseriesController < ApplicationController
   end
 
   def first_request
-    @nursery = Nursery.find(params[:nurseries_id])
+    @nursery = Nursery.where(url_name: params[:nurseries_url_name]).first
   end
 
   def send_first_request
@@ -28,11 +28,7 @@ class NurseriesController < ApplicationController
   private
 
   def save_child
-    if @child.save
-      @nursery = Nursery.find(params[:nurseries_id])
-      render 'first_request_confirmation'
-    else
-      @nursery = Nursery.find(params[:nursery_id])
-    end
+    @nursery = Nursery.where(url_name: params[:nurseries_url_name]).first
+    render 'first_request_confirmation' if @child.save
   end
 end

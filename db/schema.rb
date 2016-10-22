@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022122948) do
+ActiveRecord::Schema.define(version: 20161022181324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20161022122948) do
     t.string   "management"
     t.string   "capacity"
     t.string   "district"
+    t.string   "url_name"
+    t.index ["url_name"], name: "index_nurseries_on_url_name", using: :btree
   end
 
   create_table "parents", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
