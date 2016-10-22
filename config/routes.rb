@@ -6,17 +6,17 @@ Rails.application.routes.draw do
   get 'staticpages/terms', as: 'terms'
   get 'staticpages/privacy', as: 'privacy'
 
-  get 'signup' => 'users#new'
+  get 'signup', to: 'users#new'
   resources :users
 
-  get 'login'  => 'sessions#new'
-  post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
-  get 'nurseries' => 'nurseries#index'
-  get 'nurseries/results' => 'nurseries#results'
+  get 'nurseries', to: 'nurseries#index'
+  get 'nurseries/results', to: 'nurseries#results'
 
-  get 'registration/:id' => 'registration#index'
-  get 'registration/:id/confirmation' => 'registration#confirmation'
-  post 'registration/:id' => 'registration#create'
+  get 'registration/:id', to: 'registration#index'
+  get 'registration/:id/confirmation', to: 'registration#confirmation'
+  post 'registration/:id', to: 'registration#create'
 end
