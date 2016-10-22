@@ -4,8 +4,8 @@
 # presence validation.
 class CreateAdmin < ActiveRecord::Migration[5.0]
   def change
-    create_table :admins do |t|
-      t.references :user, foreign_key: true
+    create_table :admins, id: :uuid do |t|
+      t.references :user, type: :uuid, foreign_key: true
       t.string :first_name, null: false
       t.string :last_name, null: false
     end
