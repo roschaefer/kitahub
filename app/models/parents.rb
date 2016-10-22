@@ -2,10 +2,15 @@
 class Parents < ApplicationRecord
   belongs_to :user
   has_many :registrations
+  has_many :children
 
-  def select_nursery(nursery)
-    Registration.create(parents: self, nursery: nursery)
-    NurseryMailer.nursery_selected(nursery, self).deliver_later
+  def select_nursery(child, nursery)
+    registration = Registration.create(
+      parents: self,
+      child: child,
+      nursery: nursery
+    )
+    NurseryMailer.nursery_selected(registration).deliver_later
   end
 
   delegate :email, to: :user

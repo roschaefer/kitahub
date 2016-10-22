@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "welcome";
 @import "nurseries";
+@import "registration";
 
 html {
   position: relative;
@@ -90,6 +91,11 @@ h1, h2 {
   letter-spacing: 2px;
 }
 
+h3 {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
 p {
   font-size: 1.05em;
   color: #555;
@@ -169,6 +175,51 @@ p {
   font-size: 1.1em;
 }
 
+.inline-order {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+
+.plus-icon {
+  border: 1px #67b3dd solid;
+  border-radius: 20px;
+  padding: 0px 8px 4px 8px;
+  height: 14px;
+  font-size: 1.3em;
+  font-weight: 300;
+  margin-right: 5px;
+  &:hover, &:focus,
+  &:active, &.open  {
+    border: 1px #4BB530 solid;
+  }
+}
+
+.plus-element {
+  &::before {
+    border: 1px #67b3dd solid;
+    border-radius: 30px;
+    padding: 0px 7px 4px 7px;
+    height: 14px;
+    font-size: 1.4em;
+    font-weight: 300;
+    margin-right: 5px;
+    content: "+";
+    position: relative;
+    top: -2px;
+  }
+  color: #67b3dd;
+  font-size: 0.8em;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    color: #286090;
+    &::before {
+      border: 1px #286090 solid;
+    }
+  }
+}
+
 .margin-top-s {
   margin-top: 10px;
 }
@@ -199,4 +250,8 @@ p {
 
 .margin-bottom-xl {
   margin-bottom: 80px;
+}
+
+.margin-right-m {
+  margin-right: 30px;
 }
