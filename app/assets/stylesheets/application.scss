@@ -195,7 +195,7 @@ p {
   }
 }
 
-.plus-element {
+.add-icon {
   &::before {
     border: 1px #67b3dd solid;
     border-radius: 30px;
@@ -205,8 +205,29 @@ p {
     font-weight: 300;
     margin-right: 5px;
     content: "+";
-    position: relative;
-    top: -2px;
+  }
+  color: #67b3dd;
+  font-size: 0.8em;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    color: #286090;
+    &::before {
+      border: 1px #286090 solid;
+    }
+  }
+}
+
+.remove-icon {
+  &::before {
+    border: 1px #67b3dd solid;
+    border-radius: 30px;
+    padding: 0px 7px 3px 7px;
+    height: 14px;
+    font-size: 1.4em;
+    font-weight: 300;
+    margin-right: 5px;
+    content: "–";
   }
   color: #67b3dd;
   font-size: 0.8em;

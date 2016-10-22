@@ -18,3 +18,24 @@ $('.nursery-filter').submit(function(event) {
   var url = form.attr('action') + "?" + form.serialize();
   $('.results').load(url);
 });
+
+$('.add-child').click(function() {
+  $('.child-container').first().clone().appendTo('.next-child');
+  $('.remove-icon').show();
+  var check = $('.child-container').length
+  if ( check == 1 ) {
+    $('.remove-icon').hide();
+  } else {
+    $('.remove-icon').show();
+  }
+});
+
+$('.remove-child').click(function() {
+  $('.child-container').last().remove()
+  var check = $('.child-container').length
+  if ( check == 1 ) {
+    $('.remove-icon').hide();
+  } else {
+    $('.remove-icon').show();
+  }
+});
