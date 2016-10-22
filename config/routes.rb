@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  get 'nurseries', to: 'nurseries#index'
+  resources :nurseries, path: 'kita', only: [:index]
   get 'nurseries/results', to: 'nurseries#results'
 
   get 'registration/:id', to: 'registration#index'
