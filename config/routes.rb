@@ -13,12 +13,10 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :nurseries, path: 'kita', only: [:index]
-  get 'nurseries/results', to: 'nurseries#results'
+  resources :nurseries, path: 'kita', only: [:index] do
+    get 'platz-anfragen', to: 'nurseries#first_request', as: 'first_request'
+    post 'platz-anfragen', to: 'nurseries#send_first_request'
+  end
 
-  get 'registration/:id', to: 'registration#index'
-  get 'registration/:id/confirmation',
-      to: 'registration#confirmation',
-      as: 'registration_confirmation'
-  post 'registration/:id', to: 'registration#create'
+  get 'nurseries/results', to: 'nurseries#results'
 end
