@@ -5,7 +5,7 @@
 </div>
 <div class="row district-list">
   <div class="col-md-12">
-    <form class="nursery-filter" action="/nurseries/results">
+    <%= form_tag nurseries_results_path, class: 'nursery-filter' do %>
       <% @districts.each do |district| %>
         <div class="checkbox district-filter">
           <label>
@@ -18,7 +18,7 @@
           <input type="checkbox" name="all">Alle</input>
         </label>
       </div>
-    </form>
+    <% end  %>
   </div>
 </div>
 <div class="results">

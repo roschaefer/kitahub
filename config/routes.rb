@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'nurseries/results', to: 'nurseries#results'
 
   get 'registration/:id', to: 'registration#index'
-  get 'registration/:id/confirmation', to: 'registration#confirmation'
+  get 'registration/:id/confirmation',
+      to: 'registration#confirmation',
+      as: 'registration_confirmation'
   post 'registration/:id', to: 'registration#create'
 end

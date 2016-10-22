@@ -25,7 +25,7 @@ class RegistrationController < ApplicationController
     if @child.save
       session[:child_id] = @child.id
       nursery_id = params[:nursery_id]
-      redirect_to "/registration/#{nursery_id}/confirmation"
+      redirect_to registration_confirmation_path(nursery_id)
     else
       @nursery = Nursery.find(params[:nursery_id])
       render 'index'
