@@ -14,6 +14,9 @@ module Kitahub
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # Use UUIDs as primary keys instead of sequence numbers
+    config.active_record.primary_key = :uuid
+
     # Places mailer previews under lib/mailer_previews
     config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_previews"
   end
