@@ -52,4 +52,36 @@ RSpec.describe Nursery, type: :model do
     expect(nursery.valid?).to eq false
     expect(nursery.errors[:mail]).to eq ['can\'t be blank']
   end
+
+  it 'should have a default url name' do
+    address = Address.new('Park Avenue 4 A', '12345', '')
+    nursery = Nursery.create(
+      name: 'Foo Bar',
+      address: address,
+      phone: '875958',
+      mail: 'foo@bar.com'
+    )
+
+    expect(nursery.url_name).to eq 'foo-bar'
+  end
+
+  it 'should have a unique url name' do
+    address = Address.new('Park Avenue 4 A', '12345', '')
+    Nursery.create(
+      name: 'Foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@bar.com',
+      url_name: 'foo'
+    )
+    nursery = Nursery.create(
+      name: 'Foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@bar.com',
+      url_name: 'foo'
+    )
+
+    expect(nursery.valid?).to eq false
+  end
 end
