@@ -1,3 +1,5 @@
+require 'date'
+
 # Actions to show and filter nurseries in the registration process.
 class NurseriesController < ApplicationController
   def index
@@ -18,7 +20,7 @@ class NurseriesController < ApplicationController
     @child = Child.new(
       first_name: params[:child_first_name],
       last_name: params[:child_last_name],
-      birth_date: params[:birth_date],
+      birth_date: Date.parse(params[:child_birth_date]),
       gender: params[:child_gender],
       parents: current_parents
     )
