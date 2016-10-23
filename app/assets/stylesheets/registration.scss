@@ -9,8 +9,8 @@
 .sidebar-hl {
   color: #67b3dd;
   font-weight: normal;
-  margin-bottom: 17px;
-  line-height: 1.3em;
+  margin-bottom: 10px;
+  line-height: 1.2em;
 }
 
 .recommendation-field {
@@ -21,4 +21,19 @@
 .sidebar-btn {
   padding-right: 30px;
   padding-left: 30px;
+  color: #67b3dd;
+  border: 1px solid #67b3dd;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 0 #67b3dd;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    background-color: white;
+    color: #fff;
+    border: 1px solid #67b3dd;
+    box-shadow: inset 0 100px 0 0 #67b3dd;
+  }
 }

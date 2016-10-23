@@ -248,6 +248,27 @@ p {
   }
 }
 
+.form-btn {
+  font-size: 1em;
+  text-transform: uppercase;
+  padding: 14px 50px;
+  color: #4bbb0d;
+  border: 1px solid #78CE48;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 0 #78CE48;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    background-color: white;
+    color: #fff;
+    border: 1px solid #78CE48;
+    box-shadow: inset 0 100px 0 0 #78CE48;
+  }
+}
+
 .description {
   color: #999;
 }
