@@ -8,8 +8,8 @@ CSV.foreach('db/seed_data/nurseries.csv', headers: true) do |row|
   Nursery.create(row.to_hash)
 end
 
-user = User.create(email: 'info@kitahub.de', password: 'secretfoo')
-Parents.create(user: user)
+# user = User.create(email: 'info@kitahub.de', password: 'secretfoo')
+# Parents.create(user: user)
 
-admin = User.create(email: 'admin@kitahub.de', password: 'secretfoo')
-Admin.create(first_name: 'Foo', last_name: 'Bar', user: admin)
+# admin = User.create(email: 'admin@kitahub.de', password: 'secretfoo')
+# Admin.create(first_name: 'Foo', last_name: 'Bar', user: admin)
