@@ -5,6 +5,41 @@ class NurseriesController < ApplicationController
     @districts = Nursery.uniq.pluck(:district)
   end
 
+  def show
+    @nursery = Nursery.where(url_name: params[:url_name]).first
+  end
+
+  def new
+    @nursery = Nursery.new
+    @nursery.address = Address.new('', '', '')
+  end
+
+  def create
+    address = params[:address]
+    @nursery = Nursery.new(nursery_params)
+    @nursery.address = Address.new(address[:street], address[:zip], address[:city])
+    if @nursery.save
+      redirect_to @nursery
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+    @nursery = Nursery.where(url_name: params[:url_name]).first
+  end
+
+  def update
+    address = params[:address]
+    @nursery = Nursery.where(url_name: params[:url_name]).first
+    @nursery.address = Address.new(address[:street], address[:zip], address[:city])
+    if @nursery.update(nursery_params)
+      redirect_to @nursery
+    else
+      render 'edit'
+    end
+  end
+
   def results
     @nurseries = Nursery.where(district: params[:district])
     render partial: 'results'
@@ -26,6 +61,10 @@ class NurseriesController < ApplicationController
   end
 
   private
+
+  def nursery_params
+    params.require(:nursery).permit(:name, :address_street, :address_zip, :address_city, :mail, :phone, :children_age, :care_time, :education_concept, :management, :capacity, :district)
+  end
 
   def save_child
     @nursery = Nursery.where(url_name: params[:nurseries_url_name]).first

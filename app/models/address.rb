@@ -18,6 +18,7 @@ class Address
   end
 
   validates :street, presence: true, allow_blank: false
+  validates :city, presence: true, allow_blank: false
   validates :zip,
             presence: true,
             length: { is: 5 },
