@@ -19,7 +19,11 @@ class NurseriesController < ApplicationController
   def create
     address = params[:address]
     @nursery = Nursery.new(nursery_params)
-    @nursery.address = Address.new(address[:street], address[:zip], address[:city])
+    @nursery.address = Address.new(
+      address[:street],
+      address[:zip],
+      address[:city]
+    )
     if @nursery.save
       redirect_to @nursery
     else
@@ -34,7 +38,11 @@ class NurseriesController < ApplicationController
   def update
     address = params[:address]
     @nursery = Nursery.where(url_name: params[:url_name]).first
-    @nursery.address = Address.new(address[:street], address[:zip], address[:city])
+    @nursery.address = Address.new(
+      address[:street],
+      address[:zip],
+      address[:city]
+    )
     if @nursery.update(nursery_params)
       redirect_to @nursery
     else
@@ -73,9 +81,6 @@ class NurseriesController < ApplicationController
   def nursery_params
     params.require(:nursery).permit(
       :name,
-      :address_street,
-      :address_zip,
-      :address_city,
       :district,
       :mail,
       :phone,
