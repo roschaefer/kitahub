@@ -2,6 +2,17 @@ require 'date'
 
 # Actions to show and filter nurseries in the registration process.
 class NurseriesController < ApplicationController
+  skip_before_action :require_login,
+                     only: [:index, :results, :show]
+  skip_before_action :require_admin,
+                     only: [
+                       :index,
+                       :results,
+                       :show,
+                       :first_request,
+                       :send_first_request
+                     ]
+
   def index
     @nurseries = Nursery.where(district: params[:district])
     @districts = Nursery.uniq.pluck(:district)

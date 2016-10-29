@@ -1,5 +1,8 @@
 # Actions for login and logout by creating and deleting sessions.
 class SessionsController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_admin
+
   def new
   end
 
