@@ -63,7 +63,20 @@ class NurseriesController < ApplicationController
   private
 
   def nursery_params
-    params.require(:nursery).permit(:name, :address_street, :address_zip, :address_city, :mail, :phone, :children_age, :care_time, :education_concept, :management, :capacity, :district)
+    params.require(:nursery).permit(
+      :name,
+      :address_street,
+      :address_zip,
+      :address_city,
+      :district,
+      :mail,
+      :phone,
+      :children_age,
+      :care_time,
+      :education_concept,
+      :management, 
+      :capacity
+    )
   end
 
   def save_child
