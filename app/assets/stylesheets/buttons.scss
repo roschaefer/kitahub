@@ -1,0 +1,146 @@
+// Place the styles related to all buttons and click-icons here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ok-btn {
+  font-size: 1em;
+  text-transform: uppercase;
+  padding: 14px 50px;
+  color: #4bbb0d;
+  border: 1px solid #78CE48;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 0 #78CE48;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    background-color: white;
+    color: #fff;
+    border: 1px solid #78CE48;
+    box-shadow: inset 0 100px 0 0 #78CE48;
+  }
+}
+
+.basic-btn {
+  padding-right: 30px;
+  padding-left: 30px;
+  color: #67b3dd;
+  border: 1px solid #67b3dd;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 0 #67b3dd;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    background-color: white;
+    color: #fff;
+    border: 1px solid #67b3dd;
+    box-shadow: inset 0 100px 0 0 #67b3dd;
+  }
+}
+
+.warning-btn {
+  padding-right: 30px;
+  padding-left: 30px;
+  color: #fda947;
+  border: 1px solid #fda947;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 0 #fda947;
+  -webkit-transition: all ease 0.2s;
+  -moz-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    background-color: white;
+    color: #fff;
+    border: 1px solid #fda947;
+    box-shadow: inset 0 100px 0 0 #fda947;
+  }
+}
+
+.next-btn {
+  margin-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #78CE48;
+  color: #fff;
+  border: none;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    color: #fff;
+    background-color: #4BB530;
+  }
+}
+
+.add-icon {
+  &::before {
+    border: 1px #67b3dd solid;
+    border-radius: 30px;
+    padding: 0px 7px 4px 7px;
+    height: 14px;
+    font-size: 1.4em;
+    font-weight: 300;
+    margin-right: 5px;
+    content: "+";
+  }
+  color: #67b3dd;
+  font-size: 0.8em;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    color: #286090;
+    &::before {
+      border: 1px #286090 solid;
+    }
+  }
+}
+
+.remove-icon {
+  &::before {
+    border: 1px #67b3dd solid;
+    border-radius: 30px;
+    padding: 0px 7px 3px 7px;
+    height: 14px;
+    font-size: 1.4em;
+    font-weight: 300;
+    margin-right: 5px;
+    content: "–";
+  }
+  color: #67b3dd;
+  font-size: 0.8em;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    color: #286090;
+    &::before {
+      border: 1px #286090 solid;
+    }
+  }
+}
+
+.start-btn {
+  display: inline-block;
+  padding: 20px 70px;
+  font-size: 1.4em;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #78CE48;
+  color: #fff;
+  border: none;
+
+  &:hover, &:focus,
+  &:active, &.open  {
+    color: #fff;
+    background-color: #4BB530;
+  }
+}

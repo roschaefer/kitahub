@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :nurseries, path: 'kita', param: :url_name, only: [:index, :show, :new, :create, :edit, :update] do
+  resources :nurseries, path: 'kita', param: :url_name do
     get 'platz-anfragen', to: 'nurseries#first_request', as: 'first_request'
     post 'platz-anfragen', to: 'nurseries#send_first_request'
   end

@@ -1,59 +1,7 @@
 <div class="nursery-form center-block margin-top-l">
   <h1 class="margin-top-l margin-bottom-l">Kitadaten ändern </h1>
   <%= form_for @nursery, url: nurseries_path, method: 'patch' do |f| %>
-    <p>
-      <%= f.label :name, 'Name' %>
-      <%= render 'form_field', field_name: :name, placeholder: 'Name', type: 'text_field', f: f, model: @nursery %>
-    </p>
-    <%= fields_for @nursery.address do |a| %>
-      <p>
-        <%= a.label :street, 'Straße' %>
-        <%= render 'form_field', field_name: :street, placeholder: 'Straße', type: 'text_field', f: a, model: @nursery.address %>
-      </p>
-      <p>
-        <%= a.label :zip, 'PLZ' %>
-        <%= render 'form_field', field_name: :zip, placeholder: 'PLZ', type: 'number_field', f: a, model: @nursery.address %>
-      </p>
-      <p>
-        <%= a.label :city, 'Stadt' %>
-        <%= render 'form_field', field_name: :city, placeholder: 'Stadt', type: 'text_field', f: a, model: @nursery.address %>
-      </p>
-    <% end %>
-    <p>
-      <%= f.label :district, 'Stadtteil' %>
-      <%= render 'form_field', field_name: :district, placeholder: 'Stadtteil', type: 'text_field', f: f, model: @nursery %>
-    </p>
-    <p>
-      <%= f.label :mail, 'E-Mail' %>
-      <%= render 'form_field', field_name: :mail, placeholder: 'E-Mail', type: 'email_field', f: f, model: @nursery %>
-    </p>
-    <p>
-      <%= f.label :phone, 'Telefon' %>
-      <%= render 'form_field', field_name: :phone, placeholder: 'Telefon', type: 'telephone_field', f: f, model: @nursery %>
-    </p>
-    <p>
-      <%= f.label :children_age, 'Betreuungsalter' %>
-      <%= render 'form_field', field_name: :children_age, placeholder: 'Betreuungsalter', type: 'text_field', f: f, model: @nursery %>
-    </p>
-    <p>
-      <%= f.label :care_time, 'Betreuungszeit' %>
-      <%= render 'form_field', field_name: :care_time, placeholder: 'Betreuungszeit', type: 'text_field', f: f, model: @nursery %>
-    </p>
-    <p>
-      <%= f.label :education_concept, 'Pädagogisches Konzept' %>
-      <%= render 'form_field', field_name: :education_concept, placeholder: 'Pädagogisches Konzept', type: 'text_area', f: f, model: @nursery %>
-    </p>
-    <p>
-      <%= f.label :management, 'Ansprechpartner' %>
-      <%= render 'form_field', field_name: :management, placeholder: 'Ansprechpartner', type: 'text_field', f: f, model: @nursery %>
-    </p>
-    <p>
-      <%= f.label :capacity, 'Kapazität' %>
-      <%= render 'form_field', field_name: :capacity, placeholder: 'Kapazität', type: 'text_field', f: f, model: @nursery %>
-    </p>
-    <p>
-      <%= f.submit 'Speichern', class: 'btn btn-default center-block next-btn' %>
-    </p>
+    <%= render 'form', f: f %>
   <% end %>
 </div>
 

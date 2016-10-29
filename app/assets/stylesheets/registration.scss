@@ -1,4 +1,4 @@
-// Place all the styles related to the registration controller here.
+// Place all the styles related to the first request controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .sidebar-column {
@@ -16,24 +16,4 @@
 .recommendation-field {
   width: 250px;
   margin-top: 10px;
-}
-
-.sidebar-btn {
-  padding-right: 30px;
-  padding-left: 30px;
-  color: #67b3dd;
-  border: 1px solid #67b3dd;
-  border-radius: 3px;
-  box-shadow: inset 0 0 0 0 #67b3dd;
-  -webkit-transition: all ease 0.2s;
-  -moz-transition: all ease 0.2s;
-  transition: all ease 0.2s;
-
-  &:hover, &:focus,
-  &:active, &.open  {
-    background-color: white;
-    color: #fff;
-    border: 1px solid #67b3dd;
-    box-shadow: inset 0 100px 0 0 #67b3dd;
-  }
 }
