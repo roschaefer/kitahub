@@ -42,6 +42,12 @@ class NurseriesController < ApplicationController
     end
   end
 
+  def destroy
+    @nursery = Nursery.where(url_name: params[:url_name]).first
+    @nursery.destroy
+    render 'delete_confirmation' if @nursery.destroy
+  end
+
   def results
     @nurseries = Nursery.where(district: params[:district])
     render partial: 'results'
@@ -76,7 +82,7 @@ class NurseriesController < ApplicationController
       :children_age,
       :care_time,
       :education_concept,
-      :management, 
+      :management,
       :capacity
     )
   end

@@ -1,8 +1,12 @@
 <% @nurseries.each do |nursery| %>
   <div class="row nursery-list">
-    <div class="col-md-3"><strong><%= link_to nursery.name, nurseries_first_request_path(nursery) %></strong></div>
+    <div class="col-md-3">
+      <strong>
+        <%= link_to nursery.name, nurseries_path(nursery) %>
+      </strong>
+    </div>
     <div class="col-md-4"><%= nursery.address.full %></div>
-    <div class="col-md-2"><span>Tel.: </span><%= nursery.phone %></div>
-    <div class="col-md-3"><span>E-Mail: </span><%= nursery.mail %></div>
+
+    <div class="col-md-2"><%= link_to 'Platz anfragen', nurseries_first_request_path(nursery) %></div>
   </div>
 <% end %>

@@ -64,43 +64,6 @@
   }
 }
 
-.start-btn {
-  display: inline-block;
-  padding: 20px 70px;
-  font-size: 1.4em;
-  font-weight: normal;
-  letter-spacing: 1px;
-  margin-top: 10px;
-  margin-bottom: 50px;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: #78CE48;
-  color: #fff;
-  border: none;
-
-  &:hover, &:focus,
-  &:active, &.open  {
-    color: #fff;
-    background-color: #4BB530;
-  }
-}
-
-/*.hl {
-  color: #78CE48;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-weight: 200;
-  letter-spacing: 2px;
-}
-
-.hl-contact {
-  color: #67B3DD;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-weight: 200;
-  letter-spacing: 1px;
-}*/
-
 .carousel-bg {
   background-color: #f3f7fd;
   margin-right: -15px;
