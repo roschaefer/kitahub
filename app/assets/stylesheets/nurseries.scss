@@ -26,3 +26,15 @@
     margin-right: inherit;
   }
 }
+
+.nursery-form {
+  @media (min-width: 600px) {
+      width: 600px;
+  }
+}
+
+.kita-icon {
+  height: 100px;
+  position: relative;
+  right: 10px;
+}
