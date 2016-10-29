@@ -20,7 +20,7 @@ It is recommended to use editorconfig support in your text editor. Plugins can b
 Get the source code
 
 ``` shell
-git clone https://github.com/jehrhardt/kitahub.git
+git clone https://github.com/kitahub/kitahub.git
 cd kitahub
 ```
 
