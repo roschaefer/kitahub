@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :redirect_subdomain
   before_action :init_current_user
+  before_action :require_login
+  before_action :require_admin
 
   attr_reader :current_parents
 
@@ -46,6 +48,14 @@ class ApplicationController < ActionController::Base
 
     @current_parents ||= Parents.where(user: user).first if user
     @current_admin ||= Admin.where(user: user).first if user && !logged_in?
+  end
+
+  def require_login
+    redirect_to login_path unless logged_in?
+  end
+
+  def require_admin
+    redirect_to root_path unless admin?
   end
 
   private

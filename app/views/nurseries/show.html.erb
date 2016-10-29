@@ -14,14 +14,16 @@
   <p>Pädagogisches Konzept: <%= @nursery.education_concept %></p>
   <p>Ansprechpartner: <%= @nursery.management %></p>
   <p>Kapazität: <%= @nursery.capacity %></p>
-  <%= link_to 'Kitadaten ändern',
-    edit_nurseries_path,
-    class: 'btn btn-default basic-btn'
-  %>
-  <%= link_to 'Kita löschen',
-    nurseries_path,
-    method: :delete,
-    data: { confirm: 'Sind Sie sicher, dass Sie die Kita löschen möchten?' },
-    class: 'btn btn-default warning-btn'
-  %>
+  <% if admin? %>
+    <%= link_to 'Kitadaten ändern',
+      edit_nurseries_path,
+      class: 'btn btn-default basic-btn'
+    %>
+    <%= link_to 'Kita löschen',
+      nurseries_path,
+      method: :delete,
+      data: { confirm: 'Sind Sie sicher, dass Sie die Kita löschen möchten?' },
+      class: 'btn btn-default warning-btn'
+    %>
+  <% end %>
 </div>
