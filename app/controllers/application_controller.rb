@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_subdomain
-    app_domain = 'https://kitahub.de'
+    app_domain = 'https://www.kitahub.de'
     redirect_to app_domain + request.fullpath if disabled?(request.host)
   end
 
@@ -61,6 +61,6 @@ class ApplicationController < ActionController::Base
   private
 
   def disabled?(host)
-    host == 'www.kitahub.de'
+    host == 'kitahub.de'
   end
 end
