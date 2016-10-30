@@ -1,5 +1,5 @@
 # kitahub
-The kitahub app.
+The kitahub web app.
 
 [![Build Status](https://travis-ci.org/kitahub/kitahub.svg?branch=master)](https://travis-ci.org/kitahub/kitahub)
 
