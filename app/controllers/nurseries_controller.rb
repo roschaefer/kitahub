@@ -19,7 +19,7 @@ class NurseriesController < ApplicationController
   end
 
   def show
-    @nursery = Nursery.where(url_name: params[:url_name]).first
+    @nursery = Nursery.find_by url_name: params[:url_name]
   end
 
   def new
@@ -37,11 +37,11 @@ class NurseriesController < ApplicationController
   end
 
   def edit
-    @nursery = Nursery.where(url_name: params[:url_name]).first
+    @nursery = Nursery.find_by url_name: params[:url_name]
   end
 
   def update
-    @nursery = Nursery.where(url_name: params[:url_name]).first
+    @nursery = Nursery.find_by url_name: params[:url_name]
     if @nursery.update(nursery_params)
       redirect_to @nursery
     else
@@ -50,7 +50,7 @@ class NurseriesController < ApplicationController
   end
 
   def destroy
-    @nursery = Nursery.where(url_name: params[:url_name]).first
+    @nursery = Nursery.find_by url_name: params[:url_name]
     @nursery.destroy
     render 'delete_confirmation' if @nursery.destroy
   end
@@ -61,7 +61,7 @@ class NurseriesController < ApplicationController
   end
 
   def first_request
-    @nursery = Nursery.where(url_name: params[:nurseries_url_name]).first
+    @nursery = Nursery.find_by url_name: params[:nurseries_url_name]
   end
 
   def send_first_request
@@ -87,7 +87,7 @@ class NurseriesController < ApplicationController
   end
 
   def save_child
-    @nursery = Nursery.where(url_name: params[:nurseries_url_name]).first
+    @nursery = Nursery.find_by url_name: params[:nurseries_url_name]
     render 'first_request_confirmation' if @child.save
   end
 end

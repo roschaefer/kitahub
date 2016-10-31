@@ -42,12 +42,12 @@ class ApplicationController < ActionController::Base
 
   def init_current_user
     if session[:user_id]
-      user = User.find_by_id(session[:user_id])
+      user = User.find(session[:user_id])
       session[:user_id] = nil unless user
     end
 
-    @current_parents ||= Parents.where(user: user).first if user
-    @current_admin ||= Admin.where(user: user).first if user && !logged_in?
+    @current_parents ||= Parents.find_by user: user if user
+    @current_admin ||= Admin.find_by user: user if user && !logged_in?
   end
 
   def require_login
