@@ -36,18 +36,18 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_subdomain
-    app_domain = 'https://kitahub.de'
+    app_domain = 'https://www.kitahub.de'
     redirect_to app_domain + request.fullpath if disabled?(request.host)
   end
 
   def init_current_user
     if session[:user_id]
-      user = User.find_by_id(session[:user_id])
+      user = User.find(session[:user_id])
       session[:user_id] = nil unless user
     end
 
-    @current_parents ||= Parents.where(user: user).first if user
-    @current_admin ||= Admin.where(user: user).first if user && !logged_in?
+    @current_parents ||= Parents.find_by user: user if user
+    @current_admin ||= Admin.find_by user: user if user && !logged_in?
   end
 
   def require_login
@@ -61,6 +61,6 @@ class ApplicationController < ActionController::Base
   private
 
   def disabled?(host)
-    host == 'www.kitahub.de'
+    host == 'kitahub.de'
   end
 end
