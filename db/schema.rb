@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 20161031200654) do
     t.string   "last_name"
     t.date     "birth_date"
     t.string   "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.uuid     "parents_id"
-    t.date     "due_date"
+    t.date     "prefered_start_date"
     t.index ["parents_id"], name: "index_children_on_parents_id", using: :btree
   end
 
