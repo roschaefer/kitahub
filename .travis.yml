@@ -5,7 +5,7 @@ rvm:
 services:
   - docker
 before_install:
-  - docker-compose up -d db
+  - docker-compose up -d
 script:
   - bundle exec rubocop --rails
   - bundle exec rake db:test:prepare
