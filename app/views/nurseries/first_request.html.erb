@@ -6,7 +6,7 @@
     <%= form_tag do %>
       <div class="form-inline form-group">
         <p class="inline-order">wir sind auf der Suche nach einem Kitaplatz zum </p>
-        <%= date_field_tag :child_due_date, nil, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
+        <%= date_field_tag :prefered_start_date, nil, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
       </div>
       <div class="child-container">
         <p class="inline-order">für unsere/n</p>
@@ -37,13 +37,11 @@
       <div class="next-child"></div>
       <div class="add-icon inline-order add-child">Kind hinzufügen</div>
       <div class="remove-icon inline-order remove-child" style="display: none;">Kind entfernen</div>
-      <p class="margin-top-m">Wir möchten gerne unser Kind in Ihrer Kita anmelden. </p>
-      <p class="margin-top-m">Mit freundlichen Grüßen</p>
-      <p class="inline-order">Familie</p>
-      <p class="inline-order"><%= current_parents.email %></p>
+      <p class="margin-top-m">Wir möchten gerne unser/e Kind/er in Ihrer Kita anmelden. </h6>
+      <h6><< optionale Ergänzungen zu Ihrer Anfrage erscheinen hier</p>
   </div>
   <div class="col-md-3 margin-top-l sidebar-column">
-    <h3 class="sidebar-hl">Weitere Ergänzungen zu Ihrer Anfrage</h3>
+    <h3 class="sidebar-hl">Optionale Ergänzungen zu Ihrer Anfrage</h3>
     <div class="checkbox">
       <label><input type="checkbox"> Besichtigungstermin ist erwünscht </label>
     </div>
@@ -62,12 +60,15 @@
     </div>
     <h3 class="sidebar-hl margin-top-m">Sonstige Ergänzungen</h3>
     <textarea class="form-control" rows="3"></textarea>
-    <button class="btn btn-default basic-btn margin-top-m" href="/nurseries">Zur Anfrage hinzufügen</button>
+    <button class="btn btn-default btn-sm basic-btn margin-top-s" href="/nurseries">Text hinzufügen</button>
   </div>
 </div>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-7">
+    <p class="margin-top-s">Mit freundlichen Grüßen</p>
+    <p class="inline-order">Familie</p>
+    <p class="inline-order"><%= current_parents.email %></p></br>
     <%= submit_tag 'Anfrage senden', class: 'btn-lg btn-default ok-btn margin-top-m' %>
   </div>
 </div>

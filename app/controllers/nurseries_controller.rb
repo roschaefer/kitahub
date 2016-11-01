@@ -70,6 +70,7 @@ class NurseriesController < ApplicationController
       last_name: params[:child_last_name],
       birth_date: Date.parse(params[:child_birth_date]),
       gender: params[:child_gender],
+      prefered_start_date: params[:prefered_start_date],
       parents: current_parents
     )
     save_child
