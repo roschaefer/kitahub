@@ -37,36 +37,47 @@
       <div class="next-child"></div>
       <div class="add-icon inline-order add-child">Kind hinzufügen</div>
       <div class="remove-icon inline-order remove-child" style="display: none;">Kind entfernen</div>
-      <p class="margin-top-m">Wir möchten gerne unser/e Kind/er in Ihrer Kita anmelden. </h6>
-      <h6><< optionale Ergänzungen zu Ihrer Anfrage erscheinen hier</p>
+      <p class="margin-top-m">Wir möchten gerne unser/e Kind/er in Ihrer Kita anmelden. </p>
+      <p class="arguments" style="display: none;">Wir finden Ihre Kita besonders interessant aus folgendem Grund/folgenden Gründen:</p>
+      <ul>
+        <li class="sibling" style="display: none;">Derzeit besucht ein Geschwisterkind Ihre Kita.</li>
+        <li class="located-nearby" style="display: none;">Die Kita liegt in der Nähe zu unserem Wohnort.</li>
+        <li class="recommendation" style="display: none;">Die Kita wurde mir empfohlen<span class="recommendation-person"></span>.</li>
+      </ul>
+      <p class="margin-top-s appointment" style="display: none;">
+        Daher möchten wir gerne Sie und Ihre Kita persönlich kennenlernen.
+        Bitte schlagen Sie uns einen Termin vor.
+      </p>
+      <p class="placeholder"></p>
   </div>
-  <div class="col-md-3 margin-top-l sidebar-column">
-    <h3 class="sidebar-hl">Optionale Ergänzungen zu Ihrer Anfrage</h3>
-    <div class="checkbox">
-      <label><input type="checkbox"> Besichtigungstermin ist erwünscht </label>
+  <div class="col-md-3 margin-top-l">
+    <div class="affix sidebar-column" data-spy="affix-top" data-offset-top="200">
+      <h3 class="sidebar-hl">Optionale Ergänzungen zu Ihrer Anfrage</h3>
+      <div class="checkbox">
+        <label><input type="checkbox" class="sibling-check"> Ein Geschwisterkind besucht die Kita</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" class="located-nearby-check"> Die Kita liegt in der Nähe zum Wohnort </label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" class="recommendation-check"> Die Kita wurde mir empfohlen von
+          <input class="form-control input-sm recommendation-field" placeholder="Name"></label>
+      </div>
+      <div class="margin-top-m">
+        <div class="checkbox">
+          <label><input type="checkbox" class="appointment-check"> Besichtigungstermin ist erwünscht </label>
+        </div>
+      </div>
+      <h3 class="sidebar-hl margin-top-m">Sonstige Ergänzungen</h3>
+      <textarea class="form-control freetext" rows="3"></textarea>
+      <button class="btn btn-default btn-sm basic-btn margin-top-s add-freetext">Text hinzufügen</button>
     </div>
-    <div class="checkbox">
-      <label><input type="checkbox"> Ein Geschwisterkind besucht die Kita</label>
-    </div>
-    <h3 class="sidebar-hl margin-top-m">Was interessiert Sie an der Kita besonders?</h3>
-    <div class="checkbox">
-      <label><input type="checkbox"> Die Nähe zum Wohnort</label>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox"> Das pädagogische Konzept</label>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox"> Sie wurde mir empfohlen durch: <input type="child-first-name" class="form-control input-sm recommendation-field" id="" placeholder="Name"></label>
-    </div>
-    <h3 class="sidebar-hl margin-top-m">Sonstige Ergänzungen</h3>
-    <textarea class="form-control" rows="3"></textarea>
-    <button class="btn btn-default btn-sm basic-btn margin-top-s" href="/nurseries">Text hinzufügen</button>
   </div>
 </div>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-7">
-    <p class="margin-top-s">Mit freundlichen Grüßen</p>
+    <p class="margin-top-m">Mit freundlichen Grüßen</p>
     <p class="inline-order">Familie</p>
     <p class="inline-order"><%= current_parents.email %></p></br>
     <%= submit_tag 'Anfrage senden', class: 'btn-lg btn-default ok-btn margin-top-m' %>

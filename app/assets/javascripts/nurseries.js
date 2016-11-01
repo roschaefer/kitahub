@@ -30,7 +30,8 @@ $('.add-child').click(function() {
   }
 });
 
-$('.remove-child').click(function() {
+$('.remove-child').click(
+  function() {
   $('.child-container').last().remove()
   var check = $('.child-container').length
   if ( check == 1 ) {
@@ -38,4 +39,56 @@ $('.remove-child').click(function() {
   } else {
     $('.remove-icon').show();
   }
+});
+
+$('.appointment-check').change(
+  function(){
+    showOptionalText(this, ".appointment");
+});
+
+$('.sibling-check').change(
+  function(){
+    showOptionalText(this, ".sibling");
+    showOpeningText();
+});
+
+$('.located-nearby-check').change(
+  function(){
+    showOptionalText(this, ".located-nearby");
+    showOpeningText();
+});
+
+$('.recommendation-check').change(
+  function(){
+    showOptionalText(this, ".recommendation");
+    showOpeningText();
+});
+
+function showOpeningText(){
+  if ($('.sibling-check, .located-nearby-check, .recommendation-check').is(':checked')) {
+    $('.arguments').fadeIn('slow');
+  } else {
+    $('.arguments').fadeOut();
+  }
+}
+
+function showOptionalText(element, selector){
+  if ($(element).is(':checked')) {
+    $( selector ).fadeIn('slow');
+  } else {
+    $( selector ).fadeOut();
+  }
+}
+
+$('.recommendation-field').on('propertychange input',
+  function(){
+    var bla = $(this).val();
+    $('.recommendation-person').text(' von ' + bla);
+});
+
+$('.add-freetext').click('textarea',
+  function(event){
+    event.preventDefault();
+    var foo = $('.freetext').val();
+    $('.placeholder').text(foo);
 });
