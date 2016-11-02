@@ -64,14 +64,6 @@ $('.recommendation-check').change(
     showOpeningText();
 });
 
-function showOpeningText(){
-  if ($('.sibling-check, .located-nearby-check, .recommendation-check').is(':checked')) {
-    $('.arguments').fadeIn('slow');
-  } else {
-    $('.arguments').fadeOut();
-  }
-}
-
 function showOptionalText(element, selector){
   if ($(element).is(':checked')) {
     $( selector ).fadeIn('slow');
@@ -82,13 +74,22 @@ function showOptionalText(element, selector){
 
 $('.recommendation-field').on('propertychange input',
   function(){
-    var bla = $(this).val();
-    $('.recommendation-person').text(' von ' + bla);
+    var name = $(this).val();
+    $('.recommendation-person').text(name);
 });
 
 $('.add-freetext').click('textarea',
   function(event){
     event.preventDefault();
     var foo = $('.freetext').val();
+    $('.placeholder').fadeIn();
     $('.placeholder').text(foo);
 });
+
+$('.empty-text').click('textarea',
+  function(event){
+    event.preventDefault();
+    $('.freetext').val('');
+    $('.placeholder').fadeOut();
+  }
+)

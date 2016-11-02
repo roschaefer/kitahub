@@ -1,4 +1,4 @@
-// Place the styles related to all buttons and click-icons here.
+// Place the styles related to all buttons, links and click-icons here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -142,5 +142,15 @@
   &:active, &.open  {
     color: #fff;
     background-color: #4BB530;
+  }
+}
+
+.minor-link {
+  color: #777;
+  font-size: 0.9em;
+  &:hover, &:focus,
+  &:active, &.open  {
+    color: #286090;
+    text-decoration: none;
   }
 }
