@@ -1,13 +1,13 @@
 # Sends mails to nurseries
 class NurseryMailer < ApplicationMailer
-  def nursery_selected(registration)
-    @nursery = registration.nursery
-    @parents = registration.parents
-    @child = registration.child
+  def first_request(registrations)
+    @nursery = registrations.first.nursery
+    @parents = registrations.first.parents
+    @children = registrations.map(&:child)
 
     mail(
       to: @nursery.mail,
-      subject: "Family #{@parents} would like to register"
+      subject: 'Family would like to register'
     )
   end
 end

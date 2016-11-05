@@ -19,6 +19,18 @@ class Nursery < ApplicationRecord
     url_name
   end
 
+  def first_request(children)
+    raise 'Only children of the same parents allowed' unless
+      Child.same_parents? children
+
+    registrations = children.map do |child|
+      Registration.create(nursery: self, child: child)
+    end
+
+    NurseryMailer.first_request(registrations).deliver_now
+    registrations
+  end
+
   private
 
   def ensure_url_name

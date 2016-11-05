@@ -1,10 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe Registration, type: :model do
-  it 'should have parents' do
+  it 'should have child' do
     reg = Registration.create
     expect(reg.valid?).to eq false
-    expect(reg.errors[:parents]).to eq ['must exist']
+    expect(reg.errors[:child]).to eq ['must exist']
+  end
+
+  it 'should only be possible once for same child at same nursery' do
+    address = Address.new('Park Avenue 4 A', '12345', 'Berlin')
+    first_nursery = Nursery.create(
+      name: 'foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@example.com'
+    )
+    second_nursery = Nursery.create(
+      name: 'foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@example.com'
+    )
+    child = Child.create(parents: Parents.create)
+    Registration.create(nursery: first_nursery, child: child)
+    reg = Registration.create(nursery: second_nursery, child: child)
+
+    expect(reg.valid?).to eq false
+    expect(reg.errors[:child])
+      .to eq ['has already been registered at this nursery']
   end
 
   it 'should have a nursery' do
@@ -21,9 +44,8 @@ RSpec.describe Registration, type: :model do
       phone: '875958',
       mail: 'foo@example.com'
     )
-    user = User.create(email: 'foo@bar.com', password: 'secretfoo')
-    parents = Parents.create(user: user)
-    reg = Registration.create(parents: parents, nursery: nursery)
+    child = Child.create(parents: Parents.create)
+    reg = Registration.new(nursery: nursery, child: child)
     expect(reg.valid?).to eq true
   end
 end

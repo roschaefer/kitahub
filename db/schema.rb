@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031200654) do
+ActiveRecord::Schema.define(version: 20161105151031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,14 +62,12 @@ ActiveRecord::Schema.define(version: 20161031200654) do
   end
 
   create_table "registrations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.integer  "parents_id", null: false
-    t.integer  "nursery_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.uuid     "child_id"
+    t.uuid     "nursery_id"
     t.index ["child_id"], name: "index_registrations_on_child_id", using: :btree
     t.index ["nursery_id"], name: "index_registrations_on_nursery_id", using: :btree
-    t.index ["parents_id"], name: "index_registrations_on_parents_id", using: :btree
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -83,4 +81,5 @@ ActiveRecord::Schema.define(version: 20161031200654) do
   add_foreign_key "children", "parents", column: "parents_id"
   add_foreign_key "parents", "users"
   add_foreign_key "registrations", "children"
+  add_foreign_key "registrations", "nurseries", column: "nursery_id"
 end
