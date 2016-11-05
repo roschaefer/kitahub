@@ -18,13 +18,13 @@
 }
 
 .container>.img-area,.jumbotron,{
-  background-color: #fff;
+  background-color: white;
   padding: 0;
 
 }
 
 .teaser-bg {
-  background-color: #f3f7fd;
+  background-color: $blue-light;
   background-image: url(image_path('looking_for_nursery.jpg'));
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -44,13 +44,12 @@
 }
 
 .start-hd {
-  font-size: 2.8em;
   margin-bottom: 40px;
   letter-spacing: 1px;
   text-align: center;
   margin-top: 130px;
   line-height: 130%;
-  background-color: rgba(243, 247, 253, 0.8);
+  color: $blue-dark;
 
   @media (min-width: 645px) and (max-width: 991px) {
     margin: 40px 100px 20px 100px;
@@ -65,7 +64,7 @@
 }
 
 .carousel-bg {
-  background-color: #f3f7fd;
+  background-color: $blue-light;
   margin-right: -15px;
   margin-left: -15px;
 }
@@ -74,7 +73,7 @@
   width: 60%;
   display: block;
   margin: 100px auto 50px auto;
-  background-color: #f3f7fd;
+  background-color: $blue-light;
   height: 240px;
   padding-left: 20px;
   padding-right: 20px;
@@ -112,10 +111,8 @@
 }
 
 .carousel-hl {
-  font-size: 3.3em;
-  color: #67b3dd;
-  letter-spacing: 2px;
-  font-weight: lighter;
+  color: $blue-dark;
+  letter-spacing: 1px;
   margin-bottom: 20px;
   @media (max-width: 645px) {
     font-size: 2em;
@@ -127,9 +124,9 @@
 }
 
 .carrousel-circle li {
-  border: solid 1px #ccc;
+  border: solid 1px $grey-light;
   &.active {
-    background-color: #ccc;
+    background-color: $grey-light;
   }
 }
 
