@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Registration, type: :model do
-  it 'should have parents' do
+  it 'should have child' do
     reg = Registration.create
     expect(reg.valid?).to eq false
-    expect(reg.errors[:parents]).to eq ['must exist']
+    expect(reg.errors[:child]).to eq ['must exist']
   end
 
   it 'should have a nursery' do
@@ -24,7 +24,7 @@ RSpec.describe Registration, type: :model do
     user = User.create(email: 'foo@bar.com', password: 'secretfoo')
     parents = Parents.create(user: user)
     child = Child.create(parents: parents)
-    reg = Registration.create(parents: parents, nursery: nursery, child: child)
+    reg = Registration.create(nursery: nursery, child: child)
     expect(reg.valid?).to eq true
   end
 end

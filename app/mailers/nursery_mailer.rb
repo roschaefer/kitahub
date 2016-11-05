@@ -7,7 +7,7 @@ class NurseryMailer < ApplicationMailer
 
     mail(
       to: @nursery.mail,
-      subject: "Family #{@parents} would like to register"
+      subject: 'Family would like to register'
     )
   end
 end
