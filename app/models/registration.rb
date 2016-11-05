@@ -3,5 +3,5 @@
 class Registration < ApplicationRecord
   belongs_to :parents
   belongs_to :nursery
-  belongs_to :child, foreign_key: 'children_id'
+  belongs_to :child
 end
