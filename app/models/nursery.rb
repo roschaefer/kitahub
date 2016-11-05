@@ -20,6 +20,9 @@ class Nursery < ApplicationRecord
   end
 
   def first_request(children)
+    raise 'Only children of the same parents allowed' unless
+      Child.same_parents? children
+
     registrations = children.map do |child|
       Registration.create(nursery: self, child: child)
     end

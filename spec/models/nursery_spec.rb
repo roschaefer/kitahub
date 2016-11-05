@@ -108,4 +108,27 @@ RSpec.describe Nursery, type: :model do
     expect(mail.to).to eq ['foo@bar.com']
     expect(mail.subject).to eq 'Family would like to register'
   end
+
+  it 'should start a registration only when all children have same parents' do
+    address = Address.new('Park Avenue 4 A', '12345', '')
+    nursery = Nursery.create(
+      name: 'Foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@bar.com',
+      url_name: 'foo'
+    )
+    first_child = Child.create(
+      first_name: 'foo',
+      last_name: 'bar',
+      parents: Parents.create
+    )
+    second_child = Child.create(
+      first_name: 'foo',
+      last_name: 'bar',
+      parents: Parents.create
+    )
+
+    expect { nursery.first_request([first_child, second_child]) }.to raise_error
+  end
 end
