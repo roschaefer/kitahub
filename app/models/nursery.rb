@@ -19,6 +19,12 @@ class Nursery < ApplicationRecord
     url_name
   end
 
+  def first_request(child)
+    registration = Registration.create(nursery: self, child: child)
+    NurseryMailer.first_request(registration).deliver_now
+    registration
+  end
+
   private
 
   def ensure_url_name

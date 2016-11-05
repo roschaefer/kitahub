@@ -84,4 +84,28 @@ RSpec.describe Nursery, type: :model do
 
     expect(nursery.valid?).to eq false
   end
+
+  it 'should start a registration' do
+    address = Address.new('Park Avenue 4 A', '12345', '')
+    nursery = Nursery.create(
+      name: 'Foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@bar.com',
+      url_name: 'foo'
+    )
+    child = Child.create(
+      first_name: 'foo',
+      last_name: 'bar',
+      parents: Parents.create
+    )
+    registration = nursery.first_request(child)
+    mail = ActionMailer::Base.deliveries.last
+
+    expect(registration.nursery).to eq nursery
+    expect(registration.child).to eq child
+
+    expect(mail.to).to eq ['foo@bar.com']
+    expect(mail.subject).to eq 'Family would like to register'
+  end
 end
