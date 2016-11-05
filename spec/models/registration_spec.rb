@@ -23,7 +23,8 @@ RSpec.describe Registration, type: :model do
     )
     user = User.create(email: 'foo@bar.com', password: 'secretfoo')
     parents = Parents.create(user: user)
-    reg = Registration.create(parents: parents, nursery: nursery)
+    child = Child.create(parents: parents)
+    reg = Registration.create(parents: parents, nursery: nursery, child: child)
     expect(reg.valid?).to eq true
   end
 end
