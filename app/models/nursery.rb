@@ -19,10 +19,13 @@ class Nursery < ApplicationRecord
     url_name
   end
 
-  def first_request(child)
-    registration = Registration.create(nursery: self, child: child)
-    NurseryMailer.first_request(registration).deliver_now
-    registration
+  def first_request(children)
+    registrations = children.map do |child|
+      Registration.create(nursery: self, child: child)
+    end
+
+    NurseryMailer.first_request(registrations).deliver_now
+    registrations
   end
 
   private

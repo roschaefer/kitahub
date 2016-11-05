@@ -99,7 +99,7 @@ RSpec.describe Nursery, type: :model do
       last_name: 'bar',
       parents: Parents.create
     )
-    registration = nursery.first_request(child)
+    registration = nursery.first_request([child]).first
     mail = ActionMailer::Base.deliveries.last
 
     expect(registration.nursery).to eq nursery

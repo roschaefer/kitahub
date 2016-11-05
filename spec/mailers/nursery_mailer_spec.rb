@@ -15,7 +15,7 @@ RSpec.describe NurseryMailer, type: :mailer do
         parents: Parents.create
       )
       registration = Registration.create(nursery: nursery, child: child)
-      NurseryMailer.first_request(registration)
+      NurseryMailer.first_request([registration])
     end
 
     it 'renders the headers' do
