@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NurseryMailer, type: :mailer do
-  describe 'nursery selected' do
+  describe 'first request' do
     let(:mail) do
       nursery = Nursery.create(
         name: 'Clara Zetkin Kita Potsdam',
@@ -9,8 +9,13 @@ RSpec.describe NurseryMailer, type: :mailer do
         phone: '088665',
         address: Address.new('Hebbelstr.', '12345', 'Berlin')
       )
-      parents = Parents.create
-      NurseryMailer.nursery_selected(nursery, parents)
+      child = Child.create(
+        first_name: 'foo',
+        last_name: 'bar',
+        parents: Parents.create
+      )
+      registration = Registration.create(nursery: nursery, child: child)
+      NurseryMailer.first_request(registration)
     end
 
     it 'renders the headers' do
@@ -20,7 +25,7 @@ RSpec.describe NurseryMailer, type: :mailer do
 
     it 'renders the body' do
       expect(mail.body.encoded)
-        .to match('A new family wants to start registrering in your nursery.')
+        .to include('Familie @parents.name')
     end
   end
 end

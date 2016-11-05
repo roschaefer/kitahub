@@ -1,6 +1,6 @@
 # Sends mails to nurseries
 class NurseryMailer < ApplicationMailer
-  def nursery_selected(registration)
+  def first_request(registration)
     @nursery = registration.nursery
     @parents = registration.parents
     @child = registration.child
