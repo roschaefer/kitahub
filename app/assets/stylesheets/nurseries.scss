@@ -21,31 +21,37 @@
 
 .nursery-list {
   margin: 0 15px 0 15px;
-  border-top: 1px #ccc dotted;
+  border-top: 1px $grey-light dotted;
   padding-top: 10px;
+  padding-bottom: 10px;
   @media (max-width: 768px) {
     margin-left: inherit;
     margin-right: inherit;
   }
+  &:hover, &:focus,
+  &:active, &.open  {
+    background-color: $beige;
+  }
 }
 
 .listed-nursery {
-  font-size: 1.1em;
-  margin-top: 7px;
+  font-family: 'Assistant', sans-serif;
+  font-size: 1.4em;
   margin-bottom: 0;
-  font-weight: bold;
+  font-weight: 600;
+  color: $blue;
 }
 
 .column-header {
   font-size: 0.9em;
-  color: #777;
+  color: $grey;
   @media (max-width: 768px) {
     display: none;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1028px) {
-  .listed-btn {
+.listed-btn {
+  @media (min-width: 768px) and (max-width: 1028px) {
     padding-right: 7px;
     padding-left: 7px;
     margin-right: 5px;
@@ -53,8 +59,8 @@
   }
 }
 
-@media (min-width: 768px) {
-  .care-label {
+.care-label {
+  @media (min-width: 768px) {
     display: none;
   }
 }
@@ -62,12 +68,6 @@
 .list-header {
   margin-right: 15px;
   margin-left: 15px;
-}
-
-.results-address {
-  float: inherit;
-  font-size: 1em;
-  margin-top: 3px;
 }
 
 .nursery-form {
@@ -83,6 +83,19 @@
 }
 
 .kita-icon-sm {
-  height: 50px;
+  height: 45px;
   position: relative;
+  margin-top: 7px;
+}
+
+.icon-column {
+  @media (min-width: 1048px) {
+    width: 6%;
+  }
+}
+
+.location {
+  font-size: 1em;
+  margin-top: 2px;
+  line-height: 1.1em;
 }

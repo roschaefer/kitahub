@@ -1,5 +1,5 @@
 <div class="row list-header">
-  <div class="col-sm-1">
+  <div class="col-sm-1 icon-column">
   </div>
   <div class="col-sm-5">
   </div>
@@ -10,26 +10,25 @@
     <p class="column-header">Betreuungszeit</p>
   </div>
 </div>
-</div>
 <% @nurseries.each do |nursery| %>
-  <div class="row nursery-list">
-    <div class="col-sm-1">
-      <%= image_tag('kita-sm.png', alt: 'Kitaicon', class: 'kita-icon-sm margin-right-m') %>
+  <%= link_to nurseries_path(nursery) do %>
+    <div class="row nursery-list">
+      <div class="col-sm-1 icon-column">
+        <%= image_tag('kita-sm.png', alt: 'Kitaicon', class: 'kita-icon-sm margin-right-m') %>
+      </div>
+      <div class="col-sm-5">
+        <p class="listed-nursery"><%= nursery.name %></p>
+        <p class="location"><%= nursery.address.full %></p>
+      </div>
+      <div class="col-sm-2">
+        <p><span class="care-label">Betreuungsalter: </span><%= nursery.children_age %></p>
+      </div>
+      <div class="col-sm-2">
+        <p><span class="care-label">Betreuungszeit: </span><%= nursery.care_time %></p>
+      </div>
+      <div class="col-sm-2">
+        <%= link_to 'Platz anfragen', nurseries_first_request_path(nursery), class: 'btn btn-default btn-s basic-btn margin-top-s margin-bottom-s listed-btn' %>
+      </div>
     </div>
-    <div class="col-sm-5">
-      <p class="listed-nursery">
-        <%= link_to nursery.name, nurseries_path(nursery) %>
-      </p>
-      <p class="results-address"><%= nursery.address.full %></p>
-    </div>
-    <div class="col-sm-2">
-      <p><span class="care-label">Betreuungsalter: </span><%= nursery.children_age %></p>
-    </div>
-    <div class="col-sm-2">
-      <p><span class="care-label">Betreuungszeit: </span><%= nursery.care_time %></p>
-    </div>
-    <div class="col-sm-2">
-      <%= link_to 'Platz anfragen', nurseries_first_request_path(nursery), class: 'btn btn-default btn-s basic-btn margin-top-s margin-bottom-m listed-btn' %>
-    </div>
-  </div>
+  <% end %>
 <% end %>
