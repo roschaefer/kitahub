@@ -63,7 +63,6 @@ GEM
     execjs (2.7.0)
     ffi (1.9.14)
     formatador (0.2.5)
-    github-markup (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     guard (2.14.0)
@@ -251,7 +250,6 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.2)
-  github-markup (~> 1.4)
   guard-rspec (~> 4.7)
   jbuilder (~> 2.5)
   jquery-rails
