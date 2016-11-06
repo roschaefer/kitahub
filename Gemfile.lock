@@ -150,6 +150,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redcarpet (3.3.4)
     redis (3.3.1)
     redis-actionpack (5.0.0)
       actionpack (>= 4.0.0, < 6)
@@ -257,6 +258,7 @@ DEPENDENCIES
   pg (~> 0.18.4)
   puma (~> 3.0)
   rails (~> 5.0.0)
+  redcarpet (~> 3.3, >= 3.3.4)
   redis-rails (~> 5.0, >= 5.0.1)
   rspec-rails (~> 3.5)
   rubocop
