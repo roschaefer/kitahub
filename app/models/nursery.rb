@@ -31,6 +31,12 @@ class Nursery < ApplicationRecord
     registrations
   end
 
+  def education_concept_as_html
+    renderer = Redcarpet::Render::HTML.new
+    markdown = Redcarpet::Markdown.new(renderer)
+    markdown.render(education_concept)
+  end
+
   private
 
   def ensure_url_name
