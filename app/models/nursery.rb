@@ -5,7 +5,7 @@ class Nursery < ApplicationRecord
 
   cattr_accessor :markdown
   Nursery.markdown = Redcarpet::Markdown.new(
-    Redcarpet::Render::HTML.new(escape_html: true)
+    Redcarpet::Render::HTML.new(escape_html: true, hard_wrap: true)
   )
 
   after_initialize :ensure_url_name

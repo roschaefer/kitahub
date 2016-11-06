@@ -161,4 +161,19 @@ RSpec.describe Nursery, type: :model do
     expect(nursery.education_concept_as_html)
       .to eq "<p>bilingual (deutsch-englisch)&lt;br&gt;</p>\n"
   end
+
+  it 'should escape html from education concept' do
+    address = Address.new('Park Avenue 4 A', '12345', '')
+    nursery = Nursery.create(
+      name: 'Foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@bar.com',
+      url_name: 'foo',
+      education_concept: "bilingual\n(deutsch-englisch)"
+    )
+
+    expect(nursery.education_concept_as_html)
+      .to eq "<p>bilingual<br>\n(deutsch-englisch)</p>\n"
+  end
 end
