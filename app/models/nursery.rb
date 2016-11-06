@@ -4,7 +4,9 @@ class Nursery < ApplicationRecord
   include ActiveSupport::Inflector
 
   cattr_accessor :markdown
-  Nursery.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new)
+  Nursery.markdown = Redcarpet::Markdown.new(
+    Redcarpet::Render::HTML.new(escape_html: true)
+  )
 
   after_initialize :ensure_url_name
 
