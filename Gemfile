@@ -9,6 +9,8 @@ gem 'pg', '~> 0.18.4'
 gem 'puma', '~> 3.0'
 # Use redis for session store, etc.
 gem 'redis-rails', '~> 5.0', '>= 5.0.1'
+# Use markdown for rich text
+gem 'github-markup', '~> 1.4'
 # Use SCSS and bootstrap for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
