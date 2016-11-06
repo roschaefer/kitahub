@@ -11,7 +11,7 @@
   <p>Telefon: <%= @nursery.phone %></p>
   <p>Betreuungsalter: <%= @nursery.children_age %></p>
   <p>Betreuungszeit: <%= @nursery.care_time %></p>
-  <p>Pädagogisches Konzept: <%= @nursery.education_concept %></p>
+  <p>Pädagogisches Konzept: <%= @nursery.education_concept_as_html.html_safe %></p>
   <p>Ansprechpartner: <%= @nursery.management %></p>
   <p>Kapazität: <%= @nursery.capacity %></p>
   <% if admin? %>

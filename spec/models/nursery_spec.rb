@@ -131,4 +131,49 @@ RSpec.describe Nursery, type: :model do
 
     expect { nursery.first_request([first_child, second_child]) }.to raise_error
   end
+
+  it 'should provide education concept as html' do
+    address = Address.new('Park Avenue 4 A', '12345', '')
+    nursery = Nursery.create(
+      name: 'Foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@bar.com',
+      url_name: 'foo',
+      education_concept: '* bilingual (deutsch-englisch)'
+    )
+
+    expect(nursery.education_concept_as_html)
+      .to eq "<ul>\n<li>bilingual (deutsch-englisch)</li>\n</ul>\n"
+  end
+
+  it 'should escape html from education concept' do
+    address = Address.new('Park Avenue 4 A', '12345', '')
+    nursery = Nursery.create(
+      name: 'Foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@bar.com',
+      url_name: 'foo',
+      education_concept: 'bilingual (deutsch-englisch)<br>'
+    )
+
+    expect(nursery.education_concept_as_html)
+      .to eq "<p>bilingual (deutsch-englisch)&lt;br&gt;</p>\n"
+  end
+
+  it 'should escape html from education concept' do
+    address = Address.new('Park Avenue 4 A', '12345', '')
+    nursery = Nursery.create(
+      name: 'Foo',
+      address: address,
+      phone: '875958',
+      mail: 'foo@bar.com',
+      url_name: 'foo',
+      education_concept: "bilingual\n(deutsch-englisch)"
+    )
+
+    expect(nursery.education_concept_as_html)
+      .to eq "<p>bilingual<br>\n(deutsch-englisch)</p>\n"
+  end
 end
