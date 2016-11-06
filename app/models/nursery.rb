@@ -3,6 +3,9 @@
 class Nursery < ApplicationRecord
   include ActiveSupport::Inflector
 
+  cattr_accessor :markdown
+  Nursery.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new)
+
   after_initialize :ensure_url_name
 
   composed_of :address, mapping: [%w(address_street street),
@@ -32,8 +35,6 @@ class Nursery < ApplicationRecord
   end
 
   def education_concept_as_html
-    renderer = Redcarpet::Render::HTML.new
-    markdown = Redcarpet::Markdown.new(renderer)
     markdown.render(education_concept)
   end
 
