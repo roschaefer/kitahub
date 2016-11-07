@@ -3,6 +3,6 @@
   <div class="col-md-7">
     <h2 class="margin-top-xl margin-bottom-m">Ihre Anfrage wurde an die Kita  "<%= @nursery.name %>" erfolgreich versendet.</h2>
     <p>Sobald die Kita Ihre Anfrage beantwortet hat, werden Sie per Email benachrichtigt.<p>
-    <input type="submit" name="commit" value="Zu meinen Anfragen" class="btn btn-default next-btn" data-disable-with="Zu meinen Anfragen">
+    <%= link_to 'Zu meinen Anfragen', root_path, class: 'btn btn-default next-btn margin-top-s' %>
   </div>
 </div>

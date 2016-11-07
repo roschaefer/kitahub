@@ -89,6 +89,9 @@ class NurseriesController < ApplicationController
 
   def save_child
     @nursery = Nursery.find_by url_name: params[:nurseries_url_name]
-    render 'first_request_confirmation' if @child.save
+    if @child.save
+      @nursery.first_request([@child])
+      render 'first_request_confirmation'
+    end
   end
 end
