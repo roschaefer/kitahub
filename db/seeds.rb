@@ -10,7 +10,17 @@ end
 
 user = User.create(email: 'info@kitahub.de', password: 'secretfoo')
 parents = Parents.create(user: user)
-Child.create(first_name: 'Foo', last_name: 'Bar', parents: parents)
+first_child = Child.create(
+  first_name: 'Max',
+  last_name: 'Mustermann',
+  parents: parents
+)
+second_child = Child.create(
+  first_name: 'Melanie',
+  last_name: 'Mustermann',
+  parents: parents
+)
+Nursery.first.first_request([first_child, second_child])
 
 admin = User.create(email: 'admin@kitahub.de', password: 'secretfoo')
 Admin.create(first_name: 'Foo', last_name: 'Bar', user: admin)

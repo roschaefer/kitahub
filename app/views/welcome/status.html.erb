@@ -4,42 +4,42 @@
     <% @children.each do |child| %>
       <h3 class="margin-top-l inline-order ">für <%= child.first_name%> <%=child.last_name %></h3>
       <p class="inline-order">(geb. am <%= child.birth_date %>)</p>
-  <!--<% child.registrations.each do |reg| %>
-    <p><%= reg.nursery.name %></p>
-  <% end %>-->
-      <div class="row list-header">
-        <div class="col-sm-1 icon-column">
+      <% child.registrations.each do |reg| %>
+      <p><%= reg.nursery.name %></p>
+        <div class="row list-header">
+          <div class="col-sm-1 icon-column">
+          </div>
+          <div class="col-sm-5">
+          </div>
+          <div class="col-sm-2">
+            <p class="column-header">Betreuungsalter</p>
+          </div>
+          <div class="col-sm-2">
+            <p class="column-header">Betreuungszeit</p>
+          </div>
+          <div class="col-sm-2">
+            <p class="column-header">Status</p>
+          </div>
         </div>
-        <div class="col-sm-5">
+        <div class="row nursery-list">
+          <div class="col-sm-1 icon-column">
+            <%= image_tag('kita-sm.png', alt: 'Kitaicon', class: 'kita-icon-sm margin-right-m') %>
+          </div>
+          <div class="col-sm-5">
+            <p class="listed-nursery"><%= reg.nursery.name %></p>
+            <p class="location"><%= reg.nursery.address.full %></p>
+          </div>
+          <div class="col-sm-2">
+            <p><span class="care-label">Betreuungsalter: </span>3 Monate - 6 Jahre</p>
+          </div>
+          <div class="col-sm-2">
+            <p><span class="care-label">Betreuungszeit: </span>7:00 - 17:00 Uhr</p>
+          </div>
+          <div class="col-sm-2">
+            <p><span class="care-label">Status: </span>Keine Rückmeldung</p>
+          </div>
         </div>
-        <div class="col-sm-2">
-          <p class="column-header">Betreuungsalter</p>
-        </div>
-        <div class="col-sm-2">
-          <p class="column-header">Betreuungszeit</p>
-        </div>
-        <div class="col-sm-2">
-          <p class="column-header">Status</p>
-        </div>
-      </div>
-      <div class="row nursery-list">
-        <div class="col-sm-1 icon-column">
-          <%= image_tag('kita-sm.png', alt: 'Kitaicon', class: 'kita-icon-sm margin-right-m') %>
-        </div>
-        <div class="col-sm-5">
-          <p class="listed-nursery">Fahrländer Landmäuse</p>
-          <p class="location">Marquardter Str./Ausbau 1, 14476 Potsdam</p>
-        </div>
-        <div class="col-sm-2">
-          <p><span class="care-label">Betreuungsalter: </span>3 Monate - 6 Jahre</p>
-        </div>
-        <div class="col-sm-2">
-          <p><span class="care-label">Betreuungszeit: </span>7:00 - 17:00 Uhr</p>
-        </div>
-        <div class="col-sm-2">
-          <p><span class="care-label">Status: </span>Keine Rückmeldung</p>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
