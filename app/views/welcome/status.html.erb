@@ -5,7 +5,6 @@
       <h3 class="margin-top-l inline-order ">für <%= child.first_name%> <%=child.last_name %></h3>
       <p class="inline-order">(geb. am <%= child.birth_date %>)</p>
       <% child.registrations.each do |reg| %>
-      <p><%= reg.nursery.name %></p>
         <div class="row list-header">
           <div class="col-sm-1 icon-column">
           </div>
@@ -30,10 +29,10 @@
             <p class="location"><%= reg.nursery.address.full %></p>
           </div>
           <div class="col-sm-2">
-            <p><span class="care-label">Betreuungsalter: </span>3 Monate - 6 Jahre</p>
+            <p><span class="care-label">Betreuungsalter: </span><%= reg.nursery.children_age %></p>
           </div>
           <div class="col-sm-2">
-            <p><span class="care-label">Betreuungszeit: </span>7:00 - 17:00 Uhr</p>
+            <p><span class="care-label">Betreuungszeit: </span><%= reg.nursery.care_time %></p>
           </div>
           <div class="col-sm-2">
             <p><span class="care-label">Status: </span>Keine Rückmeldung</p>
