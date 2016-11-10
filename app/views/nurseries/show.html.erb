@@ -1,29 +1,39 @@
-<div class="nursery-form center-block margin-top-l">
-  <%= image_tag('kita.png', alt: 'Kitaicon', class: 'kita-icon margin-top-s') %>
-  <h1 class="margin-top-s margin-bottom-m">
-    <%= @nursery.name %>
-  </h1>
-  <p>Straße: <%= @nursery.address_street %></p>
-  <p>PLZ: <%= @nursery.address_zip %></p>
-  <p>Stadt: <%= @nursery.address_city %></p>
-  <p>Stadtteil: <%= @nursery.district %></p>
-  <p>E-Mail: <%= @nursery.mail %></p>
-  <p>Telefon: <%= @nursery.phone %></p>
-  <p>Betreuungsalter: <%= @nursery.children_age %></p>
-  <p>Betreuungszeit: <%= @nursery.care_time %></p>
-  <p>Pädagogisches Konzept: <%= @nursery.education_concept_as_html.html_safe %></p>
-  <p>Ansprechpartner: <%= @nursery.management %></p>
-  <p>Kapazität: <%= @nursery.capacity %></p>
-  <% if admin? %>
-    <%= link_to 'Kitadaten ändern',
-      edit_nurseries_path,
-      class: 'btn btn-default basic-btn'
-    %>
-    <%= link_to 'Kita löschen',
-      nurseries_path,
-      method: :delete,
-      data: { confirm: 'Sind Sie sicher, dass Sie die Kita löschen möchten?' },
-      class: 'btn btn-default warning-btn'
-    %>
-  <% end %>
+<div class="row">
+  <div class="col-md-1 hidden-column-lm"></div>
+  <div class="col-md-7 margin-top-l">
+    <%= image_tag('kita.png', alt: 'Kitaicon', class: 'kita-icon') %>
+    <h1 class="margin-top-s margin-top-l margin-bottom-l"><%= @nursery.name %></h1>
+    <h4>Pädagogisches Konzept</h4>
+    <p><%= @nursery.education_concept_as_html.html_safe %></p>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-3 nursery-sidebar">
+    <p>Anschrift: <br>
+    <%= @nursery.address_street %><br><%= @nursery.address_zip %>, <%= @nursery.address_city %></p>
+    <p>Stadtteil:<br><%= @nursery.district %></p>
+    <p>E-Mail: <%= @nursery.mail %></p>
+    <p>Telefon: <%= @nursery.phone %></p>
+    <p>Ansprechpartner/in: <%= @nursery.management %></p>
+
+    <p>Betreuungsalter:<br><%= @nursery.children_age %></p>
+    <p>Betreuungszeit:<br><%= @nursery.care_time %></p>
+    <p>Kapazität:<br><%= @nursery.capacity %></p>
+  </div>
+</div>
+<div class="row margin-top-m">
+  <div class="col-md-1 hidden-column-lm"></div>
+  <div class="col-md-7">
+    <% if admin? %>
+      <%= link_to 'Kitadaten ändern',
+        edit_nurseries_path,
+        class: 'btn btn-default basic-btn'
+      %>
+      <%= link_to 'Kita löschen',
+        nurseries_path,
+        method: :delete,
+        data: { confirm: 'Sind Sie sicher, dass Sie die Kita löschen möchten?' },
+        class: 'btn btn-default warning-btn'
+      %>
+    <% end %>
+  </div>
 </div>

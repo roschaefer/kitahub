@@ -77,9 +77,13 @@
 }
 
 .kita-icon {
-  height: 100px;
+  height: 110px;
   position: relative;
   right: 10px;
+  float: left;
+  @media (max-width: 992px) {
+    float: none;
+  }
 }
 
 .kita-icon-sm {
@@ -98,4 +102,22 @@
   font-size: 1em;
   margin-top: 2px;
   line-height: 1.1em;
+}
+
+.nursery-sidebar {
+  margin-top: 100px;
+  border-left: 1px $blue dotted;
+  @media (max-width: 991px) {
+    margin-top: 30px;
+    border: none;
+  }
+}
+
+.hidden-column-lm {
+  @media (max-width: 992px) {
+    display: none;
+  }
+  @media (min-width: 992px) and (max-width: 1120px) {
+    width: 30px;
+  }
 }
