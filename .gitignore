@@ -20,5 +20,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore rspec examples file
+spec/examples.txt
+
 # macOS specific
 .DS_Store
