@@ -1,6 +1,7 @@
 # This child needs to be registered in a nursery
 class Child < ApplicationRecord
   belongs_to :parents
+  has_many :registrations
 
   validates :first_name, presence: { message: 'darf nicht fehlen' }
   validates :last_name, presence: { message: 'darf nicht fehlen' }
