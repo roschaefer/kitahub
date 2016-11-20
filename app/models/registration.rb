@@ -1,8 +1,10 @@
 # Validates uniqueness of registration per child and nursery.
 class UniqueRegValidator < ActiveModel::Validator
   def validate(reg)
+    return unless reg.exists?
+
     reg.errors[:child] <<
-      'has already been registered at this nursery' if reg.exists?
+      'has already been registered at this nursery'
   end
 end
 
