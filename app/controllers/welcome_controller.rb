@@ -5,9 +5,9 @@ class WelcomeController < ApplicationController
 
   def index
     redirect_to root_path unless request.path == root_path
-    if logged_in?
-      @children = current_parents.children
-      render :status
-    end
+
+    return unless logged_in?    
+    @children = current_parents.children
+    render :status
   end
 end
