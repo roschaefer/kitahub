@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git push prod master
+ssh dokku@admin.kitahub.de run www.kitahub.de rake db:migrate

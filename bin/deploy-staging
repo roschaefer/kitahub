@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git push staging master
+ssh dokku@admin.kitahub.de run staging.kitahub.de rake db:migrate
