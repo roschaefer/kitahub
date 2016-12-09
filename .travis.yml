@@ -8,5 +8,5 @@ before_install:
   - docker-compose up -d
 script:
   - bundle exec rubocop --rails
-  - bundle exec rake db:test:prepare
-  - bundle exec rails spec
+  - bin/rails db:test:prepare
+  - bin/rails test
