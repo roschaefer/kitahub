@@ -11,7 +11,7 @@
   </div>
 </div>
 <% @nurseries.each do |nursery| %>
-  <%= link_to nurseries_path(nursery) do %>
+  <%= link_to nursery_path(nursery) do %>
     <div class="row nursery-list list-margin">
       <div class="col-sm-1 icon-column">
         <%= image_tag('kita-sm.png', alt: 'Kitaicon', class: 'kita-icon-sm margin-right-m') %>
@@ -27,7 +27,7 @@
         <p><span class="care-label">Betreuungszeit: </span><%= nursery.care_time %></p>
       </div>
       <div class="col-sm-2">
-        <%= link_to 'Platz anfragen', nurseries_first_request_path(nursery), class: 'btn btn-default btn-s basic-btn margin-top-s margin-bottom-s listed-btn' %>
+        <%= link_to 'Platz anfragen', nursery_first_request_path(nursery), class: 'btn btn-default btn-s basic-btn margin-top-s margin-bottom-s listed-btn' %>
       </div>
     </div>
   <% end %>

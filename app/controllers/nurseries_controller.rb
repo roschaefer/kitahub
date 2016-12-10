@@ -61,7 +61,7 @@ class NurseriesController < ApplicationController
   end
 
   def first_request
-    @nursery = Nursery.find_by url_name: params[:nurseries_url_name]
+    @nursery = Nursery.find_by url_name: params[:nursery_url_name]
   end
 
   def send_first_request
@@ -88,7 +88,7 @@ class NurseriesController < ApplicationController
   end
 
   def save_child
-    @nursery = Nursery.find_by url_name: params[:nurseries_url_name]
+    @nursery = Nursery.find_by url_name: params[:nursery_url_name]
     return unless @child.save
 
     @nursery.first_request([@child])
