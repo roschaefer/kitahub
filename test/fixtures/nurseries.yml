@@ -1,0 +1,25 @@
+kinderland:
+  name: Kinder Land
+  address_street: Am Kirchberg 50
+  address_zip: 14476
+  address_city: Potsdam
+  phone: 033208-22610
+  mail: info@kitahub.de
+  children_age: 0 Jahre bis Schuleintritt
+  care_time: 6 bis 17 Uhr
+  education_concept: Wie üblich
+  created_at: <%= 5.day.ago.to_s(:db) %>
+  updated_at: <%= 2.day.ago.to_s(:db) %>
+
+spatzennest:
+  name: Spatzennest
+  address_street: Tristanstr. 58
+  address_zip: 14476
+  address_city: Potsdam
+  phone: 033201-430043
+  mail: info@kitahub.de
+  children_age: 9 Monate bis Schuleintritt
+  care_time: "6.30 bis 17 Uhr, FR: 6.30 bis 16:30 Uhr"
+  education_concept: Wie üblich
+  created_at: <%= 10.day.ago.to_s(:db) %>
+  updated_at: <%= 2.day.ago.to_s(:db) %>
