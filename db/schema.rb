@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20161211105813) do
   end
 
   add_foreign_key "admins", "users"
-  add_foreign_key "children", "parents", column: "parents_id"
+  add_foreign_key "children", "parents"
   add_foreign_key "parents", "users"
   add_foreign_key "registrations", "children"
   add_foreign_key "registrations", "nurseries"
