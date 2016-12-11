@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211105813) do
+ActiveRecord::Schema.define(version: 20161211115716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20161211105813) do
     t.string "first_name", null: false
     t.string "last_name",  null: false
     t.index ["user_id"], name: "index_admins_on_user_id", using: :btree
+  end
+
+  create_table "candidates", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "registration_id"
+    t.uuid     "child_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["child_id"], name: "index_candidates_on_child_id", using: :btree
+    t.index ["registration_id"], name: "index_candidates_on_registration_id", using: :btree
   end
 
   create_table "children", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -63,10 +72,8 @@ ActiveRecord::Schema.define(version: 20161211105813) do
   create_table "registrations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid     "child_id"
     t.uuid     "nursery_id"
     t.date     "preferred_start_date"
-    t.index ["child_id"], name: "index_registrations_on_child_id", using: :btree
     t.index ["nursery_id"], name: "index_registrations_on_nursery_id", using: :btree
   end
 
@@ -80,6 +87,5 @@ ActiveRecord::Schema.define(version: 20161211105813) do
   add_foreign_key "admins", "users"
   add_foreign_key "children", "parents"
   add_foreign_key "parents", "users"
-  add_foreign_key "registrations", "children"
   add_foreign_key "registrations", "nurseries"
 end
