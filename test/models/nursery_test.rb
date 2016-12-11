@@ -62,4 +62,13 @@ class NurseryTest < ActiveSupport::TestCase
     assert_equal "<p>bilingual<br>\n(deutsch-englisch)</p>\n",
                  nursery.education_concept_as_html
   end
+
+  test 'first request to register' do
+    children = children(:max, :melani)
+    nursery = nurseries(:kinderland)
+    registration = nursery.first_request(children)
+
+    assert_equal nursery, registration.nursery
+    assert_equal children, registration.children
+  end
 end
