@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105151031) do
+ActiveRecord::Schema.define(version: 20161211105813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20161105151031) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.uuid     "parents_id"
-    t.date     "prefered_start_date"
     t.index ["parents_id"], name: "index_children_on_parents_id", using: :btree
   end
 
@@ -66,6 +65,7 @@ ActiveRecord::Schema.define(version: 20161105151031) do
     t.datetime "updated_at", null: false
     t.uuid     "child_id"
     t.uuid     "nursery_id"
+    t.date     "preferred_start_date"
     t.index ["child_id"], name: "index_registrations_on_child_id", using: :btree
     t.index ["nursery_id"], name: "index_registrations_on_nursery_id", using: :btree
   end
@@ -81,5 +81,5 @@ ActiveRecord::Schema.define(version: 20161105151031) do
   add_foreign_key "children", "parents", column: "parents_id"
   add_foreign_key "parents", "users"
   add_foreign_key "registrations", "children"
-  add_foreign_key "registrations", "nurseries", column: "nursery_id"
+  add_foreign_key "registrations", "nurseries"
 end
