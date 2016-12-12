@@ -23,7 +23,7 @@
         <% if not_live? %>
           <div class="collapse navbar-collapse response-menu" id="bs-example-navbar-collapse-1">
             <ul class="navbar-right mobile-marginless">
-              <%= link_to 'Kita finden', nurseries_index_path, class: 'btn btn-default header-btn' %>
+              <%= link_to 'Kita finden', nurseries_path, class: 'btn btn-default header-btn' %>
               <% if logged_in? %>
                 <a class="mobile-menu"><%= link_to 'Abmelden', logout_path, method: 'delete', class: 'mobile-menu-link'%></a>
                 <ul class="nav navbar-nav navbar-right mobile-hidden">
@@ -35,7 +35,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       <% if admin? %>
-                        <li><%= link_to 'Kita hinzufügen', new_nurseries_path, method: 'get' %></li>
+                        <li><%= link_to 'Kita hinzufügen', new_nursery_path, method: 'get' %></li>
                       <% end %>
                       <li><%= link_to 'Abmelden', logout_path, method: 'delete' %></li>
                     </ul>

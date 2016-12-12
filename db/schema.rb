@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105151031) do
+ActiveRecord::Schema.define(version: 20161211115716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20161105151031) do
     t.index ["user_id"], name: "index_admins_on_user_id", using: :btree
   end
 
+  create_table "candidates", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "registration_id"
+    t.uuid     "child_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["child_id"], name: "index_candidates_on_child_id", using: :btree
+    t.index ["registration_id"], name: "index_candidates_on_registration_id", using: :btree
+  end
+
   create_table "children", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -31,7 +40,6 @@ ActiveRecord::Schema.define(version: 20161105151031) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.uuid     "parents_id"
-    t.date     "prefered_start_date"
     t.index ["parents_id"], name: "index_children_on_parents_id", using: :btree
   end
 
@@ -64,9 +72,8 @@ ActiveRecord::Schema.define(version: 20161105151031) do
   create_table "registrations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid     "child_id"
     t.uuid     "nursery_id"
-    t.index ["child_id"], name: "index_registrations_on_child_id", using: :btree
+    t.date     "preferred_start_date"
     t.index ["nursery_id"], name: "index_registrations_on_nursery_id", using: :btree
   end
 
@@ -78,8 +85,7 @@ ActiveRecord::Schema.define(version: 20161105151031) do
   end
 
   add_foreign_key "admins", "users"
-  add_foreign_key "children", "parents", column: "parents_id"
+  add_foreign_key "children", "parents"
   add_foreign_key "parents", "users"
-  add_foreign_key "registrations", "children"
-  add_foreign_key "registrations", "nurseries", column: "nursery_id"
+  add_foreign_key "registrations", "nurseries"
 end

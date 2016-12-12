@@ -1,0 +1,3 @@
+mustermann:
+  email: info@kitahub.de
+  password_digest: <%= BCrypt::Password.create('secretfoo') %>

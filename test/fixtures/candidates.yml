@@ -1,0 +1,7 @@
+max:
+  registration: mustermann_spatzennest
+  child: max
+
+melani:
+  registration: mustermann_spatzennest
+  child: melani

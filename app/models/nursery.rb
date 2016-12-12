@@ -24,16 +24,9 @@ class Nursery < ApplicationRecord
     url_name
   end
 
+  # Starts a registration of the given children at this nursery.
   def first_request(children)
-    raise 'Only children of the same parents allowed' unless
-      Child.same_parents? children
-
-    registrations = children.map do |child|
-      Registration.create(nursery: self, child: child)
-    end
-
-    NurseryMailer.first_request(registrations).deliver_now
-    registrations
+    Registration.create(nursery: self, children: children)
   end
 
   def education_concept_as_html
