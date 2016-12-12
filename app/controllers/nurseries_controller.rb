@@ -73,7 +73,7 @@ class NurseriesController < ApplicationController
     @registration = @nursery.first_request(@children)
     @registration.preferred_start_date = preferred_start_date
 
-    render 'first_request'
+    render :first_request_confirmation
   end
 
   private
