@@ -20,7 +20,7 @@ $('.nursery-filter').submit(function(event) {
 });
 
 $('.add-child').click(function() {
-  $('.child-container').first().clone().appendTo('.next-child');
+  $('.child-container').first().clone().appendTo('.children');
   $('.remove-icon').show();
   var check = $('.child-container').length
   if ( check == 1 ) {
