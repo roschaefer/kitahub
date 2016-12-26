@@ -1,17 +1,9 @@
-require 'date'
-
 # Actions to show and filter nurseries in the registration process.
 class NurseriesController < ApplicationController
   skip_before_action :require_login,
                      only: [:index, :results, :show]
   skip_before_action :require_admin,
-                     only: [
-                       :index,
-                       :results,
-                       :show,
-                       :first_request,
-                       :send_first_request
-                     ]
+                     only: [:index, :results, :show]
 
   def index
     @nurseries = Nursery.where(district: params[:district])
@@ -60,25 +52,6 @@ class NurseriesController < ApplicationController
     render partial: 'results'
   end
 
-  def first_request
-    @nursery = Nursery.find_by url_name: params[:nursery_url_name]
-    @registration = Registration.new
-    @registration.children = [Child.new]
-  end
-
-  def send_first_request
-    @nursery = Nursery.find_by url_name: params[:nursery_url_name]
-
-    @registration = Registration.new(registration_params)
-    @registration.nursery = @nursery
-    @registration.children.each do |child|
-      child.parents = current_parents
-    end
-    @registration.save
-
-    render :first_request_confirmation
-  end
-
   private
 
   def nursery_params
@@ -87,13 +60,6 @@ class NurseriesController < ApplicationController
       address_street: address[:street],
       address_zip: address[:zip],
       address_city: address[:city]
-    )
-  end
-
-  def registration_params
-    params.require(:registration).permit(
-      :preferred_start_date,
-      children_attributes: [:first_name, :last_name, :gender, :birth_date]
     )
   end
 end

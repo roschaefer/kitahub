@@ -4,7 +4,7 @@
     <h2 class="margin-top-l margin-bottom-l">Ihre Anfrage in der Kita “<%= @nursery.name %>”</h2>
     <p class="margin-bottom-s">Sehr geehrte/r <%= @nursery.management %>,</p>
 
-    <%= form_for @registration, url: nursery_send_first_request_path(@nursery) do |registration_form| %>
+    <%= form_for @registration, url: nursery_registrations_path(@nursery) do |registration_form| %>
       <div class="children">
         <div class="form-inline form-group">
           <p class="inline-order">wir sind auf der Suche nach einem Kitaplatz zum </p>

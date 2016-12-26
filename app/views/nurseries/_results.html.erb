@@ -27,7 +27,7 @@
         <p><span class="care-label">Betreuungszeit: </span><%= nursery.care_time %></p>
       </div>
       <div class="col-sm-2">
-        <%= link_to 'Platz anfragen', nursery_first_request_path(nursery), class: 'btn btn-default btn-s basic-btn margin-top-s margin-bottom-s listed-btn' %>
+        <%= link_to 'Platz anfragen', new_nursery_registration_path(nursery), class: 'btn btn-default btn-s basic-btn margin-top-s margin-bottom-s listed-btn' %>
       </div>
     </div>
   <% end %>
