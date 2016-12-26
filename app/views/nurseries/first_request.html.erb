@@ -11,8 +11,8 @@
           <%= registration_form.date_field :preferred_start_date, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
         </div>
 
-        <% @children.each do |child| %>
-          <%= fields_for 'children[][]', child do |child_form| %>
+        <% @registration.children.each_with_index do |child, i| %>
+          <%= registration_form.fields_for :children, child do |child_form| %>
             <div class="child-container">
               <p class="inline-order">für unsere/n</p>
               <div class="checkbox inline-order">

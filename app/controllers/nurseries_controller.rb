@@ -63,15 +63,18 @@ class NurseriesController < ApplicationController
   def first_request
     @nursery = Nursery.find_by url_name: params[:nursery_url_name]
     @registration = Registration.new
-    @children = [Child.new]
+    @registration.children = [Child.new]
   end
 
   def send_first_request
     @nursery = Nursery.find_by url_name: params[:nursery_url_name]
-    @children = create_children
 
-    @registration = @nursery.first_request(@children)
-    @registration.preferred_start_date = preferred_start_date
+    @registration = Registration.new(registration_params)
+    @registration.nursery = @nursery
+    @registration.children.each do |child|
+      child.parents = current_parents
+    end
+    @registration.save
 
     render :first_request_confirmation
   end
@@ -87,27 +90,10 @@ class NurseriesController < ApplicationController
     )
   end
 
-  def preferred_start_date
-    params[:registration][:preferred_start_date]
-  end
-
-  def create_children
-    params[:children].map do |c|
-      child = Child.new(child_params(c))
-      child.parents = current_parents
-      child
-    end
-  end
-
-  def child_params(c)
-    c.permit(:first_name, :last_name, :birth_date, :gender)
-  end
-
-  def save_child
-    @nursery = Nursery.find_by url_name: params[:nursery_url_name]
-    return unless @child.save
-
-    @nursery.first_request([@child])
-    render 'first_request_confirmation'
+  def registration_params
+    params.require(:registration).permit(
+      :preferred_start_date,
+      children_attributes: [:first_name, :last_name, :gender, :birth_date]
+    )
   end
 end
