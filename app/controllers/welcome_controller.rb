@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
 
     return unless logged_in?
 
-    children = current_parents.children
+    children = current_parents.children unless admin?
     @registrations = registrations_for children if children
     render :status
   end
