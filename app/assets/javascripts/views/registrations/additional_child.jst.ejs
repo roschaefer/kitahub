@@ -1,0 +1,17 @@
+<div class="child-container">
+  <p class="inline-order">für unsere/n</p>
+  <div class="checkbox inline-order">
+    <label><input type="radio" value="Mädchen" name="registration[children_attributes][<%= index %>][gender]"> Tochter</label>
+  </div>
+  <div class="checkbox inline-order margin-right-m">
+    <label><input type="radio" value="Junge" name="registration[children_attributes][<%= index %>][gender]"> Sohn</label>
+  </div>
+  <div class="form-inline form-group">
+    <div class="form-group">
+      <input placeholder="Vorname" class="form-control" type="text" name="registration[children_attributes][<%= index %>][first_name]">
+    </div>
+    <input placeholder="Vorname" class="form-control" type="text" name="registration[children_attributes][<%= index %>][last_name]">
+    <p class="inline-order">  geboren am</p>
+    <input placeholder="tt.mm.jjjj" class="form-control" type="date" name="registration[children_attributes][<%= index %>][birth_date]">
+  </div>
+</div>
