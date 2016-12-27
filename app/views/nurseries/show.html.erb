@@ -25,11 +25,11 @@
   <div class="col-md-7">
     <% if admin? %>
       <%= link_to 'Kitadaten ändern',
-        edit_nurseries_path,
+        edit_nursery_path,
         class: 'btn btn-default basic-btn'
       %>
       <%= link_to 'Kita löschen',
-        nurseries_path,
+        nursery_path,
         method: :delete,
         data: { confirm: 'Sind Sie sicher, dass Sie die Kita löschen möchten?' },
         class: 'btn btn-default warning-btn'
