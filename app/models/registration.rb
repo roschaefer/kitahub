@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # An aggregate root representing the registration process of parents at a
 # nursery.
 class Registration < ApplicationRecord

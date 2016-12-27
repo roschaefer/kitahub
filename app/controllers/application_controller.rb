@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Root class of all controllers.
 # Adds session handling and www.kitahub.de support. It also takes care of non
 # live features.

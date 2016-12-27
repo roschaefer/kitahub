@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # The preferred start date fits much better to the registration.
 class MovePreferredStartDateFromChildToRegistration <
       ActiveRecord::Migration[5.0]

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # A nursery is one part in the registration process. It is the place, where the
 # parents want to register their child.
 class Nursery < ApplicationRecord

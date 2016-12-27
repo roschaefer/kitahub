@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Creates the admin user table. The records in the table will be added directly
 # in the database at the beginning. Thus the null constraints are required.
 # Once an user interface to add those users exsists, the app can do the

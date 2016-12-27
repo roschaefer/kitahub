@@ -1,5 +1,6 @@
 require 'date'
 
+# frozen_string_literal: true
 # Actions to show and filter nurseries in the registration process.
 class NurseriesController < ApplicationController
   skip_before_action :require_login,

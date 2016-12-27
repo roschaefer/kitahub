@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Actions to create users, that can login to the application.
 class UsersController < ApplicationController
   skip_before_action :require_login
