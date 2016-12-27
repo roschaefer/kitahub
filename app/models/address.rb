@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # A value object, that represents the postal address of someone.
 class Address
   include ActiveModel::Validations

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Some columns have been setup incorrectly. This migration cleans it up.
 class CleanUpNurseryTable < ActiveRecord::Migration[5.0]
   def change

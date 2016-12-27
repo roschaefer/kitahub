@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Actions to create a registration. This controller is used as a nested
 # controller under nurseries.
 class RegistrationsController < ApplicationController

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # URL name is a string that is derived from the nursery's name and used instead
 # of IDs in URLs.
 class AddUrlNameToNursery < ActiveRecord::Migration[5.0]

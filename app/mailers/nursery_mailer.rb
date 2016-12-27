@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Sends mails to nurseries
 class NurseryMailer < ApplicationMailer
   def first_request(registrations)

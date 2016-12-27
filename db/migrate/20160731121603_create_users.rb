@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Add users table for login to the database.
 class CreateUsers < ActiveRecord::Migration[5.0]
   def change

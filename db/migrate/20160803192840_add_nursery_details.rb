@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Add detail information about a nursery to the database.
 class AddNurseryDetails < ActiveRecord::Migration[5.0]
   def add_address

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Add the nurseries table to the database.
 class CreateNurseries < ActiveRecord::Migration[5.0]
   def change

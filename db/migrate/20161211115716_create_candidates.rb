@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # A candidate for a nursery is a child, that is part of a registration.
 # This will also replace the previous relationship between a registration and
 # a child.

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Provides a sandbox for mails on staging by changing to recipient.
 class StagingEmailInterceptor
   def self.delivering_email(message)

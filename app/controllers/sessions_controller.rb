@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Actions for login and logout by creating and deleting sessions.
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]

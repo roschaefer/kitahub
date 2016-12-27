@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This child needs to be registered in a nursery
 class Child < ApplicationRecord
   belongs_to :parents
