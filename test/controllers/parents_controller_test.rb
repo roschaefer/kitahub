@@ -34,4 +34,23 @@ class ParentsControllerTest < ActionDispatch::IntegrationTest
     assert_nil session[:redirect_to]
     assert_not_nil session[:user_id]
   end
+
+  test 'should redirect to root when no referrer set' do
+    post parents_index_path,
+         params: {
+           parents: {
+             first_name: 'Foo',
+             last_name: 'Bar',
+             user_attributes:
+               {
+                 email: 'foo@example.com',
+                 password: 'secretfoo'
+               }
+           }
+         }
+
+    assert_redirected_to root_path
+    assert_nil session[:redirect_to]
+    assert_not_nil session[:user_id]
+  end
 end

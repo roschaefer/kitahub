@@ -12,8 +12,14 @@ class ParentsController < ApplicationController
 
   def create
     @parents = Parents.create(parents_params)
-    redirect_to session[:redirect_to]
-    session[:redirect_to] = nil
+
+    if session[:redirect_to]
+      redirect_to session[:redirect_to]
+      session[:redirect_to] = nil
+    else
+      redirect_to root_path
+    end
+
     session[:user_id] = @parents.user.id
   end
 
