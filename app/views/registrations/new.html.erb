@@ -4,43 +4,45 @@
     <h2 class="margin-top-l margin-bottom-l">Ihre Anfrage in der Kita “<%= @nursery.name %>”</h2>
     <p class="margin-bottom-s">Sehr geehrte/r <%= @nursery.management %>,</p>
 
-    <%= form_for @registration, url: nursery_send_first_request_path(@nursery) do |registration_form| %>
-      <div class="form-inline form-group">
-        <p class="inline-order">wir sind auf der Suche nach einem Kitaplatz zum </p>
-        <%= registration_form.date_field :preferred_start_date, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
-      </div>
+    <%= form_for @registration, url: nursery_registrations_path(@nursery) do |registration_form| %>
+      <div class="children">
+        <div class="form-inline form-group">
+          <p class="inline-order">wir sind auf der Suche nach einem Kitaplatz zum </p>
+          <%= registration_form.date_field :preferred_start_date, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
+        </div>
 
-      <% @children.each do |child| %>
-        <%= fields_for 'children[][]', child do |child_form| %>
-          <div class="child-container">
-            <p class="inline-order">für unsere/n</p>
-            <div class="checkbox inline-order">
-              <label><%= child_form.radio_button :gender, 'Mädchen', type: 'checkbox' %> Tochter</label>
+        <% @registration.children.each_with_index do |child, i| %>
+          <%= registration_form.fields_for :children, child do |child_form| %>
+            <div class="child-container">
+              <p class="inline-order">für unsere/n</p>
+              <div class="checkbox inline-order">
+                <label><%= child_form.radio_button :gender, 'Mädchen', type: 'checkbox' %> Tochter</label>
+              </div>
+              <div class="checkbox inline-order margin-right-m">
+                <label><%= child_form.radio_button :gender, 'Junge', type: 'checkbox' %> Sohn</label>
+              </div>
+              <div class="form-inline form-group">
+                <% if @child && @child.errors[:first_name].any? %>
+                  <div class="form-group has-error">
+                    <label class="control-label">
+                      <%= @child.errors[:first_name].join(", ") %>
+                    </label>
+                    <%= child_form.text_field :first_name, placeholder: 'Vorname', class: 'form-control' %>
+                  </div>
+                <% else %>
+                  <div class="form-group">
+                    <%= child_form.text_field :first_name, placeholder: 'Vorname', class: 'form-control' %>
+                  </div>
+                <% end %>
+                <%= child_form.text_field :last_name, placeholder: 'Nachname', class: 'form-control margin-right-m' %>
+                <p class="inline-order">  geboren am</p>
+                <%= child_form.date_field :birth_date, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
+              </div>
             </div>
-            <div class="checkbox inline-order margin-right-m">
-              <label><%= child_form.radio_button :gender, 'Junge', type: 'checkbox' %> Sohn</label>
-            </div>
-            <div class="form-inline form-group">
-              <% if @child && @child.errors[:first_name].any? %>
-                <div class="form-group has-error">
-                  <label class="control-label">
-                    <%= @child.errors[:first_name].join(", ") %>
-                  </label>
-                  <%= child_form.text_field :first_name, placeholder: 'Vorname', class: 'form-control' %>
-                </div>
-              <% else %>
-                <div class="form-group">
-                  <%= child_form.text_field :first_name, placeholder: 'Vorname', class: 'form-control' %>
-                </div>
-              <% end %>
-              <%= child_form.text_field :last_name, placeholder: 'Nachname', class: 'form-control margin-right-m' %>
-              <p class="inline-order">  geboren am</p>
-              <%= child_form.date_field :birth_date, placeholder: 'tt.mm.jjjj', class: 'form-control' %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-      <div class="next-child"></div>
+          <% end %>
+      </div>
+    <% end %>
+
       <div class="add-icon inline-order add-child">Weiteres Kind hinzufügen</div>
       <div class="remove-icon inline-order remove-child" style="display: none;">Kind entfernen</div>
       <p class="margin-top-m">Wir möchten gerne unser/e Kind/er in Ihrer Kita anmelden. </p>

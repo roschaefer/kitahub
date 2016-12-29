@@ -1,18 +1,10 @@
-require 'date'
-
 # frozen_string_literal: true
 # Actions to show and filter nurseries in the registration process.
 class NurseriesController < ApplicationController
   skip_before_action :require_login,
                      only: [:index, :results, :show]
   skip_before_action :require_admin,
-                     only: [
-                       :index,
-                       :results,
-                       :show,
-                       :first_request,
-                       :send_first_request
-                     ]
+                     only: [:index, :results, :show]
 
   def index
     @nurseries = Nursery.where(district: params[:district])
@@ -61,22 +53,6 @@ class NurseriesController < ApplicationController
     render partial: 'results'
   end
 
-  def first_request
-    @nursery = Nursery.find_by url_name: params[:nursery_url_name]
-    @registration = Registration.new
-    @children = [Child.new]
-  end
-
-  def send_first_request
-    @nursery = Nursery.find_by url_name: params[:nursery_url_name]
-    @children = create_children
-
-    @registration = @nursery.first_request(@children)
-    @registration.preferred_start_date = preferred_start_date
-
-    render :first_request_confirmation
-  end
-
   private
 
   def nursery_params
@@ -86,29 +62,5 @@ class NurseriesController < ApplicationController
       address_zip: address[:zip],
       address_city: address[:city]
     )
-  end
-
-  def preferred_start_date
-    params[:registration][:preferred_start_date]
-  end
-
-  def create_children
-    params[:children].map do |c|
-      child = Child.new(child_params(c))
-      child.parents = current_parents
-      child
-    end
-  end
-
-  def child_params(c)
-    c.permit(:first_name, :last_name, :birth_date, :gender)
-  end
-
-  def save_child
-    @nursery = Nursery.find_by url_name: params[:nursery_url_name]
-    return unless @child.save
-
-    @nursery.first_request([@child])
-    render 'first_request_confirmation'
   end
 end
