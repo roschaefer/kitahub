@@ -1,8 +1,0 @@
-<div class="register-block center-block margin-top-l">
-  <h1 class="register-hd">Registrieren</h1>
-  <%= form_for(@user) do |f| %>
-    <%= render 'form_field', field_name: :email, placeholder: 'E-Mail', type: 'email_field', f: f, model: @user %>
-    <%= render 'form_field', field_name: :password, placeholder: 'Passwort', type: 'password_field', f: f, model: @user %>
-    <%= f.submit 'Neu anmelden', class: 'btn btn-default center-block next-btn' %>
-  <% end %>
-</div>

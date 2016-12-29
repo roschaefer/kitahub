@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get 'agb', to: 'staticpages#terms', as: 'terms'
   get 'datenschutz', to: 'staticpages#privacy', as: 'privacy'
 
-  get 'signup', to: 'users#new'
-  resources :users
-
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
