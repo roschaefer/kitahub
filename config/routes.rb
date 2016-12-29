@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :nurseries, path: 'kita', param: :url_name do
       resources :registrations, path: 'anmeldung', only: [:new, :create]
     end
+
+    resources :parents, path: 'eltern', only: [:new, :create]
   end
 
   get 'nurseries/results', to: 'nurseries#results'
