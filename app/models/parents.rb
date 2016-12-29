@@ -9,7 +9,7 @@ class Parents < ApplicationRecord
   delegate :email, to: :user
 
   def display_name
-    email
+    "#{first_name} #{last_name}"
   end
 
   validates :user, uniqueness: true

@@ -11,8 +11,19 @@ class ParentsController < ApplicationController
   end
 
   def create
-    Parents.create(params.require(:parents).permit(:email, :password))
+    @parents = Parents.create(parents_params)
     redirect_to session[:redirect_to]
     session[:redirect_to] = nil
+    session[:user_id] = @parents.user.id
+  end
+
+  private
+
+  def parents_params
+    params.require(:parents).permit(
+      :first_name,
+      :last_namme,
+      user_attributes: [:email, :password]
+    )
   end
 end

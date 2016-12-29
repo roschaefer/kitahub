@@ -10,7 +10,11 @@ CSV.foreach('db/seed_data/nurseries.csv', headers: true) do |row|
 end
 
 user = User.create(email: 'info@kitahub.de', password: 'secretfoo')
-parents = Parents.create(user: user)
+parents = Parents.create(
+  first_name: 'Maria',
+  last_name: 'Mustermann',
+  user: user
+)
 first_child = Child.create(
   first_name: 'Max',
   last_name: 'Mustermann',

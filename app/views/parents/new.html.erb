@@ -1,6 +1,8 @@
 <div class="register-block center-block margin-top-l">
   <h1 class="register-hd">Registrieren</h1>
   <%= form_for(@parents) do |f| %>
+    <%= f.text_field :first_name, placeholder: 'Vorname' %>
+    <%= f.text_field :last_name, placeholder: 'Nachname' %>
     <%= f.fields_for :user do |user_form| %>
       <%= user_form.email_field :email, placeholder: 'E-Mail' %>
       <%= user_form.password_field :password, placeholder: 'Passwort' %>

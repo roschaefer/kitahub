@@ -7,6 +7,8 @@ class ParentsControllerTest < ActionDispatch::IntegrationTest
         headers: { 'HTTP_REFERER' => 'http://example.com/foo' }
 
     assert_response :success
+    assert_select 'input[name="parents[first_name]"]'
+    assert_select 'input[name="parents[last_name]"]'
     assert_select 'input[name="parents[user_attributes][email]"]'
     assert_select 'input[name="parents[user_attributes][password]"]'
     assert_equal 'http://example.com/foo', session[:redirect_to]
@@ -18,6 +20,8 @@ class ParentsControllerTest < ActionDispatch::IntegrationTest
     post parents_index_path,
          params: {
            parents: {
+             first_name: 'Foo',
+             last_name: 'Bar',
              user_attributes:
                {
                  email: 'foo@example.com',
@@ -28,5 +32,6 @@ class ParentsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to 'http://example.com/foo'
     assert_nil session[:redirect_to]
+    assert_not_nil session[:user_id]
   end
 end

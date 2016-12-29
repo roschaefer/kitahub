@@ -1,2 +1,4 @@
 mustermann:
+  first_name: Maria
+  last_name: Mustermann
   user: mustermann
